@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>15_zindex.html</title> 
+        <style>
+            #aa{background-color: red;  width: 100px;   height: 100px;  position: absolute; left: 0;    top: 0; z-index: 3;}
+            #bb{background-color: green;  width: 80px;   height: 200px;  position: absolute; left: 0;   top: 0; z-index: 5;}
+            #cc{background-color: blue;  width: 60px;   height: 300px;  position: absolute; left: 0;    top: 0; z-index: 1;}
+
+        </style>
+    </head>
+    <body>                       
+
+        <!-- https://www.w3schools.com/css/css_z-index.asp --> 
+
+        <!-- 레이어 순서 정하기 (가장 큰 수가 위로, 레이어 순서값은 음수도 허용) -->
+        <div id="aa"></div>
+        <div id="bb"></div>
+        <div id="cc"></div>
+
+    </body>                      
+</html>                          

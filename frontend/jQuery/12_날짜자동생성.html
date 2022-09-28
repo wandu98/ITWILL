@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>12_날짜자동생성.html</title>
+        <script src="jquery-3.6.1.min.js"></script> 
+        <script src="moment-with-locales.js"></script>
+
+    </head>
+    <body>                       
+
+        <h3>날짜 데이터 자동 생성</h3>
+
+        생년월일 : 
+        <select id="myYear"></select>년
+
+        <select id="myMonth"></select>월
+
+        <select id="myDate"></select>일
+
+        
+        
+
+
+        <script>
+
+            createYearMonth(); //최초로 함수 한 번만 호출
+
+            //년, 월 생성하기
+            function createYearMonth(){
+                //alert();
+
+                //1) 1월~12월 생성 후 추가
+                for(m=1; m<=12; m++){
+                    //부모.append(자식)
+                    //$("#myMonth").append($("<option>").text(m).val(m));
+                    //자식.appendTo(부모)
+                    $("<option>").text(m).val(m).appendTo($("#myMonth"));
+                }//for end
+
+                //2)현재년도 -5년 ~ 현재년도+5년까지 출력 + 초기설정 값 2022
+                let cYear=moment().year();  //현재년도 2022
+                for(y=cYear-5; y<=cYear+5; y++){
+                    if(y==cYear){
+                        // appendTo 사용 $("<option>").text(y).val(y).appendTo($("#myYear")); + attr() 잘 붙여서 사용
+                        //$("#myYear").append($("<option>").text(y).val(y).attr("selected", "selected"));
+                        $("#myYear").append($("<option>").text(y).val(y).prop("selected", true));
+                    }else{
+                        $("#myYear").append($("<option>").text(y).val(y));
+                    }//if end
+                }//for end
+                
+                //4) '일' 생성하는 함수 호출 year, month 완성이 되고 호출이 되어야한다
+                createDate();
+
+            }//createYearMonth() end
+
+            function createDate(){ //일 생성하기
+
+                //10)기존의 '일' 출력된 값을 지우기
+                $("#myDate").empty();
+
+                //text() : 일반적인 요소의 문자열값을 얻어올때
+                //val()  : <input>, <select>, <textarea>등 폼과 관련된 값(컨트롤 요소)을 얻어올때
+
+                //5)id=myYear에서 사용자가 선택한 년 가져오기
+                var year=$("#myYear").val();
+                //alert(year);
+
+                //6)id=myMonth에서 사용자가 선택한 월 가져오기
+                var month=$("#myMonth").val();
+                //alert(month);
+
+                //7)endOf() : 해당년도와 해당월의 마지막 일을 얻어옴
+                let endDay=moment(year+"-"+month).endOf("month").date();
+                //alert(endDay);
+
+                //8) '일' 추가
+                for(d=1; d<=endDay; d++){
+                    $("#myDate").append($("<option>").text(d).val(d));
+                }//for end
+            }//createDate() end
+
+            //9)사용자가 넌, 월을 변경했을 때 (change이벤트 발생)
+            $("myYear, #myMonth").change(createDate);
+            //$("myYear, #myMonth").change("createDate()"); old version
+        </script>
+        
+    </body>                      
+</html>                          

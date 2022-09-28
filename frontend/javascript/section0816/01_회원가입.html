@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>01_회원가입.html</title> 
+        <style>
+            .line{width: 150px; height: 20px; border: 1px solid orange;}
+        </style>
+        <script src="myscript2.js"></script>
+    </head>
+    <body>                       
+        <!-- 
+            Frontend(UI, View)단에서 서로 다른 문법(이종)간의 데이터를 교류하기 위해서
+            JavaScript와 jQuery를 활용하고, 데이터의 유효성을 검증하기 위해서도 사용한다
+        -->
+        <h3>회원가입</h3>
+        <form name="memfrm" id="memfrm" action="ok.jsp" onsubmit="return validate()">
+            아이디 : 
+            <input type="text" name="uid" id="uid" class="line">
+            <input type="button" value="ID중복확인" onclick="getID()">
+            <input type="button" value="ID적용"    onclick="setID()">
+            <hr>
+            
+            비밀번호 : 
+            <input type="password" name="upw" id="upw">
+            <hr>
+
+            주민번호
+            <input type="text" name="jumin1" id="jumin1" size="6" maxlength="6">
+            -
+            <input type="text" name="jumin2" id="jumin2" size="7" maxlength="7">
+            <hr>  
+
+            약관동의 : 
+            <input type="checkbox" name="agree" id="agree">
+            <hr>  
+
+            <input type="submit"  value="가입1">
+            <input type="reset"   value="취소">
+            <input type="button"  value="가입2" onclick="validate2()">
+
+
+        </form>
+
+        
+        
+        <script></script>
+        
+    </body>                      
+</html>                          

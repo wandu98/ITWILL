@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>04_math.html</title> 
+    </head>
+    <body>                       
+
+        <h3>Math 객체</h3>
+
+        <script>
+            /*
+               참조 https://www.w3schools.com/js/js_math.asp
+               Math : 수학관련 객체
+            */
+
+            document.write(Math.abs(-3));       //절대값
+            document.write("<hr>")
+            document.write(Math.max(7, 5, 9));  //최대값
+            document.write("<hr>")
+            document.write(Math.min(-7,-5,-9)); //최소값
+            document.write("<hr>")
+            document.write(Math.pow(2,4));      //2의 4승
+            document.write("<hr>");
+
+            //소수점 반올림
+            document.write(Math.round(4.9));    //5
+            document.write("<hr>");
+            document.write(Math.round(4.4));    //4
+            document.write("<hr>");
+            document.write(Math.round(-4.2));   //-4
+            document.write("<hr>");
+
+            //소수점 올림
+            document.write(Math.ceil(4.9));     //5
+            document.write("<hr>"); 
+            document.write(Math.ceil(4.4));     //5
+            document.write("<hr>");
+            document.write(Math.ceil(-4.2));    //-4
+            document.write("<hr>");
+
+            //소수점 버림
+            document.write(Math.floor(4.9));    //4
+            document.write("<hr>");
+            document.write(Math.floor(4.4));    //4
+            document.write("<hr>");
+            document.write(Math.floor(-4.2));   //-5
+            document.write("<hr>");
+            
+            document.write(Math.E); //Log 
+            document.write("<hr>");
+            document.write(Math.PI);//PI (원주율)
+            document.write("<hr>");
+            //////////////////////////////////////////
+
+
+            //Math.random() : 무작위로 발생한 수 (난수)
+            //random값 발생 범위 : 0.0 <= r < 1
+            //document.write(Math.random());
+            //document.write("<hr>");
+
+            //document.write(Math.random()*2);
+            //document.write("<hr>");
+
+            //document.write(parseInt(Math.random()*2));  //0 1
+            //document.write("<hr>");
+
+            //document.write(parseInt(Math.random()*4));  //0 1 2 3
+            //document.write("<hr>");
+
+            //문) 주사위 1~6사이의 수만 발생시키시오
+            document.write(parseInt(Math.random()*6)+1);  
+            document.write("<hr>");
+
+            //문) 로또번호 1~45사이의 수만 발생시키시오
+            document.write(parseInt(Math.random()*45)+1);  
+            document.write("<hr>");
+
+
+        </script>
+        
+    </body>                      
+</html>                          

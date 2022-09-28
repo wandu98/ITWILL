@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>02_this.html</title> 
+    </head>
+    <body>            
+        
+        <h3>this</h3>
+        <!-- 주의사항 <FORM>요소에서 this.form은 undefined 주의 !! -->
+        <form name="myform" id="myform" onsubmit="return test5(this)">
+            <input type="button" name="btn1" id="btn1" value="버튼1" onclick="test1()">
+            <!-- this 자신의 요소 -->
+            <input type="button" name="btn2" id="btn2" value="버튼2" onclick="test2(this)">
+            <!-- this.value 자신의 요소가 가지고 있는 실제 값 (value="") -->
+            <input type="button" name="btn3" id="btn3" value="버튼3" onclick="test3(this.value)">
+            <!-- this.form 자신의 요소가 속해 있는 폼. 여기서는 <form name=myform>을 가리킴 -->
+            <input type="button" name="btn4" id="btn4" value="버튼4" onclick="test4(this.form)">
+            <hr>
+            <!-- onsubmit이벤트는 리턴값이 ture이면 전송된다 -->
+            <input type="submit" value="전송">
+        </form>
+        
+        <script>
+            //참조  https://www.w3schools.com/js/js_this.asp
+            /*
+                ● [this]
+                 - 자기자신의 요소를 가리킴
+                예) <a href="" onclick="test(this)">
+                    여기에서 this는 쓰레기값이므로 주의
+            */
+           function test1(){
+                //1)name접근(비추)
+                let f=document.myform;
+                alert(f);               //[object HTMLFormElement]
+                alert(f.btn1);          //[object HTMLInputElement]
+                alert(f.btn1.value);    // 버튼1
+
+                //2)id접근(추천)
+                alert(document.getElementById("btn1").value); //버튼1
+           }//test1() end
+
+           function test2(obj){
+                alert(obj);         //[object HTMLInputElement]
+                alert(obj.value);   //버튼2
+           }//test2() end
+
+
+           function test3(val){
+                alert(val);     //버튼3
+           }//test3() end
+
+           function test4(f){
+            alert(f);           //[object HTMLFormElement] 여기서는 <form name=myform>을 가디리킴
+            alert(f.btn4)       //[object HTMLInputElement]
+            alert(f.btn4.value) //버튼4
+           }//test4() end
+
+           function test5(f){
+            alert(f)            //[object HTMLFormElement]
+           }//test5() end
+        </script>
+        
+    </body>                      
+</html>                          

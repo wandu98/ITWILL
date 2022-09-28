@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>16_부모자식요소.html</title> 
+        <style>
+            body{margin: 0;}
+            .parent{
+                width: 600px;
+                height: 300px;
+                background-color:  gold;
+                margin: 150px;
+                position:relative;
+
+            }
+            .child{
+                width: 100px;
+                height: 50px;
+                background-color: gray;
+                right: 10px;
+                bottom: 10px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>  <!-- style="position:relative" 속성이 이미 있는 상태-->   
+
+        부모요소 : relative / 자식요소 : absolute
+        <hr>
+
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+
+
+    </body>                      
+</html>                          

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>18_rotate.html</title> 
+        <style>
+            #menu{
+                position: relative;                 /*부모*/
+                width: 150px;
+                height: 130px;
+                background-color: silver;
+                margin: auto;                       /*수평을 기준으로 가운데 정렬*/
+                border-radius: 10px;                /*모서리 라운드 처리*/
+                cursor: pointer;                    /*커서 손모양*/
+            }
+
+            #menu:hover{ /*마우스가 올라오면*/
+                background-color: orange;
+                
+             
+            }
+
+            #menu>strong{
+                position: absolute;/*자식. 원래 나의 위치도 사라지고 부모안에서만 움직임*/
+                left: 38px;
+                bottom: 10px;
+            }
+
+            /* 이미지삽입 */
+            #menu>.gear{
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                background-image: url(../images/gear-gray.png);
+                background-size: 40px 40px;
+             
+            }
+
+            /*톱니바퀴 이미지 배치하기*/
+
+            #menu>.gear:nth-child(1){
+                top: 16px;
+                left: 46px;
+            }
+
+            #menu>.gear:nth-child(2){
+                top: 47px;
+                left: 64px;
+                transform: rotate(30deg); /*시계방향으로 30도 회전*/
+            }
+
+            /*마우스가 바탕색(실버)에 오버가 되면 이미지를 오렌지색 이미지로 변경*/
+            #menu:hover>.gear{
+                background-image: url(../images/gear.png);
+                /* 부드럽게 */
+                transition: .9s linear; /* ease | linear*/
+            }
+
+            /* 이미지 회전 */
+            #menu:hover>.gear:nth-child(1){
+                /* 반시계 방향으로 반바퀴 회전 */
+                transform: rotate(-1080deg);
+            }
+
+            #menu:hover>.gear:nth-child(2){
+                /* 시계 방향으로 반바퀴 회전 */
+                transform: rotate(1110deg); 
+                /* 초기설정 부분에서 이미 30도를 줬기 때문에 이 부분 생각해서 반바퀴(30+180)주기 */
+            }
+
+
+        </style>
+    </head>
+    <body>                       
+
+        <div id="menu">
+            <div class="gear"></div>
+            <div class="gear"></div>
+            <strong>SETTINGS</strong>
+
+        </div>
+
+    </body>                      
+</html>                          

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>11_fixed.html</title> 
+        <link rel="stylesheet" href="reset.css">
+        <style>
+            /*
+                absolute 문서영역 기준 (일단은 body영역을 기준)
+                fixed    화면영역 기준 (브라우저를 기준으로 예)위로, 아래로, 퀵메뉴 등
+            */
+            /* 1)*/
+           /* 
+            #sl ul{background-color: yellow;}
+            #sl li:nth-child(1) {background-color: red;}
+            #sl li:nth-child(2) {background-color: green;
+                                --position:relative;
+                                --position:absolute;
+                                position:fixed;
+                                left: 100px;
+                                top: 100px;}
+            #sl li:nth-child(3) {background-color: blue;}
+            */
+
+            /* 2) 화면 하단에 고정 */
+            /*
+            #sl ul{background-color: yellow;}
+            #sl li:nth-child(1) {background-color: red;}
+            #sl li:nth-child(2) {background-color: green;
+                                 position:fixed;
+                                 bottom: 0;
+                                 height: 80px;
+                                 width: 100%;
+                                }
+            #sl li:nth-child(3) {background-color: blue;}
+            */
+
+            /* 3) 부모포지션 지정. 브라우저 화면을 기준으로 보기 때문에 어떠한 부모에게도 종속되지 않음*/
+            #sl ul{background-color: yellow; position: relative; height: 300px;}
+            #sl li:nth-child(1) {background-color: red;}
+            #sl li:nth-child(2) {background-color: green;
+                                 position: fixed;
+                                 bottom: 0;
+                                 height: 80px;
+                                 width: 100%;
+                                }
+            #sl li:nth-child(3) {background: blue;}
+
+        </style>
+    </head>
+    <body>           
+
+        <!-- 고정 위치 position:fixed -->
+        <section id="sl">
+            <h1>position:fixed</h1>
+            <ul>
+                <li>개나리</li>
+                <li>진달래</li>
+                <li>라일락</li>
+            </ul>
+        </section>
+
+        <!-- 문서의 길이를 강제로 길게, 수직스크롤이 나올수 있게 해서 테스트 한다 -->
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+        <p>KOREA</p>
+
+
+    </body>                      
+</html>                          

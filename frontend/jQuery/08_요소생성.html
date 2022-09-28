@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>08_요소생성.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <h3>요소 생성</h3>
+
+        <p>
+            <button id="createBtn">테이블 생성</button>
+        </p>
+        <div id="box"></div>
+        <!-- 
+            <table> 요소 element
+            border  속성 property, attribute
+         -->
+
+        
+        <script>
+        /*
+            ● 요소를 생성하는 이유
+                - 문자단위의 통신에 많이 사용하기 때문(비동기식) -> AJAX
+                - 댓글의 더보기 등의 무한 스크롤링하기 위해
+
+            ● 요소 생성 및 추가
+            - append(),     appendTo() 요소를 끝에 추가
+            - prepend().    prependTo() 요소를 앞에 추가
+            - 부모.append(자식)
+            - 자식.append(부모)
+        */
+
+        $("#createBtn").click(function(){
+            //alert();
+
+            //1)
+            /*
+            let table="";
+            table += "<table border='1'>";
+            table += "<tr>";
+            table += "     <td>대한민국</tb>";
+            table += "</tr>";
+            table += "</table>";
+
+            //$("#box").html(table); //마크업 
+            //$("#box").text(table); //순수문자열
+            */
+
+            //2)
+            let $table=$("<table></table>");
+            let $tr1  =$("<tr><td>사과</td><td>바나나</td></tr>");
+            let $tr2  =$("<tr>");
+            let $td1  =$("<td>수박</td>");
+            let $td2  =$("<td>").text("메론");
+
+            //$tr2변수에 $td1, $td2를 마지막에 자식으로 추가
+            $tr2.append($td1, $td2);    //수박, 메론
+
+            //$table변수에 자식으로 추가
+            $table.prepend($tr1, $tr2);
+
+            $("#box").append($table);
+
+        });//click end
+
+        </script>
+        
+    </body>                      
+</html>                          

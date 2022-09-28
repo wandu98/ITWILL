@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>09_absolute.html</title> 
+        <!-- 현재 페이지에서 css 초기화 -->
+        <link rel="stylesheet" href="reset.css">
+        <style>
+            /* #sl ul{background-color: yellow; height: 300px;} */
+            /* #sl li:nth-child(1){background-color: red; position: absolute; left: 100px; top: 30px;}  */
+            /* #sl li:nth-child(1){background-color: red; position: absolute; right: 0; bottom: 0;} */
+
+            /* 1) <body> 본문영역이 기준 좌표  */
+            /* #sl li:nth-child(1) {background-color: red; position: absolute; left: 0; top: 0;} */
+            /* #sl li:nth-child(2) {background-color: green;} */
+            /* #sl li:nth-child(3) {background-color: blue;} */
+
+
+            /* 2)부모 영역을 기준으로 position:relative*/
+            /* 부모 ul, 자식 li */
+            /*
+            #sl ul{background-color: yellow; height: 300px; position: relative;} 
+            #sl li:nth-child(1) {background-color: red;
+                                 position: absolute;
+                                 --left: 0;
+                                 --top: 0;
+                                 right: 0;
+                                 bottom: 0;
+                                } 
+            #sl li:nth-child(2) {background-color: green;} 
+            #sl li:nth-child(3) {background-color: blue;} 
+            */
+            
+            /* 3)*/
+            #sl ul{background-color: yellow; height: 300px; position: relative;} 
+            #sl li:nth-child(1) {background-color: red; position: absolute; right: 0; bottom: 0; width: 100%;  } 
+            #sl li:nth-child(2) {background-color: green;} 
+            #sl li:nth-child(3) {background-color: blue;} 
+
+        </style>
+    </head>
+    <body>  
+                             
+        <!-- 절대적 위치 position:absolute -->
+        <section id="sl">
+            <h3>position:absolute</h3>
+            <ul>
+                <li>국어</li>
+                <li>영어</li>
+                <li>수학</li>
+            </ul>
+        </section>
+
+    </body>                      
+</html>                          

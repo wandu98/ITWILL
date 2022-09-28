@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>09_요소탐색.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <style>
+            table {
+                border-collapse:collapse;
+                font:bold 50px Arial, Helvetica, sans-serif;
+                margin: auto;
+            }
+
+            table td {
+                padding:20px 35px;
+            }
+        </style>
+    </head>
+    <body>                       
+
+            <h3>요소 탐색</h3>
+            <table border="1">
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                </tbody>
+            </table>
+        
+        <script>
+            //DOM 구조에서 원하는 요소까지 이동하고 찾아 가는 것
+            $("td").eq(2).css("background", "red")
+                   .prev().css("background", "blue")
+                   .parent()    //첫번째 tr
+                   .next()      //두번째 tr
+                   .children()  //두번째 자손 td->4, 5, 6
+                   .eq(1).css("background", "yellow");
+                   
+        </script>
+        
+    </body>                      
+</html>                          

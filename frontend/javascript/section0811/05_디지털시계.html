@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>05_디지털시계.html</title> 
+    </head>
+    <body>             
+        
+        <h3>디지털 시계</h3>
+        <div id="clock"></div>
+        <hr>
+
+        <input type="button" value="시작" onclick="showtime()">
+        <input type="button" value="중지" onclick="killtime()">
+
+        <script>
+            function showtime(){
+                const d=new Date(); //시스템의 현재 날짜 정보 가져오기 
+
+                let today ="";
+                today += d.getFullYear() + ".";      //2022.
+
+                if(d.getMonth()+1<10){
+                        today += "0";
+                }//if end
+                today += d.getMonth()+1 + ".";       //2022.08.
+
+                if(d.getDate()<10){
+                        today += "0";
+                }//if end
+                today += d.getDate();                //2022.08.11
+
+                switch(d.getDay()){
+                        case 0 : today+="   (일) "; break;
+                        case 1 : today+="   (월) "; break;
+                        case 2 : today+="   (화) "; break;
+                        case 3 : today+="   (수) "; break;
+                        case 4 : today+="   (목) "; break;
+                        case 5 : today+="   (금) "; break;
+                        case 6 : today+="   (토) "; break;
+                }//switch end
+
+
+                if(d.getHours()<12){
+                        today += " AM "
+                }else{
+                        today += " PM "                       //2022.08.11 (목) PM 
+                }//if end
+
+                if(d.getHours()<13){
+                        today += d.getHours() + ":";
+                }else{
+                        today += d.getHours()-12 + ":";     //2022.08.11 (목) PM 시
+                }//if end
+
+                if(d.getMinutes()<10){
+                        today += "0";
+                }//if end
+                today += d.getMinutes() + ":";           //2022.08.10 (수) PM 시 분
+
+                if(d.getSeconds()<10){
+                        today += "0";
+                }//if end
+                today += d.getSeconds();                 //2022.08.10 (수) PM 시 분 초
+
+                    document.getElementById("clock").innerText = today;
+                    timer=setTimeout(showtime, 1000); //1초후에 showtime함수를 호출
+                    
+                }//showtime()end
+
+                let timer;  //전역변수
+                
+                function killtime(){
+                    clearTimeout(timer);    //시간해제
+                }//killtime() end
+
+                
+              
+
+        </script>
+    </body>                      
+</html>                          

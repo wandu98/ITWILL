@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>04_css메소드.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <style>
+            #box{width:400px; height: 300px; border: 1px solid #000;}
+        </style>
+    </head>
+    <body>                       
+
+        <h3>css() 함수</h3>
+        <p>
+            <button>색상입력</button>
+            <button>높이얻기</button>
+            <button>여러개의 속성을 한번에 변경</button>
+        </p>
+        <div id='box'></div>
+
+        
+        <script>
+            /*
+                참조 https://www.w3schools.com/jquery/jquery_dom_get.asp
+                    https://www.w3schools.com/jquery/jquery_dom_set.asp
+
+                ● [getter와 setter함수]
+                - jQuery는 대부분 getter와 setter함수 이름을 같이 사용한다
+                - JavaScript에서 스타일 접근 : document.getEiementById("").style
+                - jQuery에서 스타일 접근 함수 : css()함수
+                1) css(속성명)          : getter개념
+                2) css(속성명, 속성값)    : setter개념
+                3) css({속성명:속성값, 속성명:속성값, 속성명:속성값, ~~~}) 여러개의 속성을 한꺼번에 세팅(JSON)
+            
+            */
+                //<body>에 있는 <button>요소들 중에서 0번째 접근
+                $("button:eq(0)").click(function(){
+                    //setter 함수
+                    $("#box").css("background", "red");
+                });// click end
+
+                $("button:eq(1)").click(function(){
+                    //getter함수
+                    let width=$("#box").css("width");
+                    let height=$("#box").css("height");
+                    alert(width);
+                    alert(height);
+                });// click end
+
+                $("button:eq(2)").click(function(){
+                    //JSON : Key와 Value 구성
+                    let width=800;
+                    $("#box").css({
+                                        "width":width
+                                        ,height:600
+                                        ,"background":"url(../images/k7.png)"
+                                        ,"border":"50px dotted blue"
+                                 });
+                });// click end
+
+                //jQuery Method Chaining
+                //$()
+        </script>
+        
+    </body>                      
+</html>                          

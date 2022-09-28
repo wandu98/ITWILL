@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>01_형변환.html</title> 
+    </head>
+    <body>                       
+
+        <h3>자료형변환 (Type conversion) </h3>
+
+        <script>
+            //참조 https://www.w3schools.com/js/js_type_conversion.asp
+            //형변환 : 필요한 곳에서 일시적(강제적)으로 변환
+
+            document.write(10+20);      //30
+            document.write("10"+"20");  //"1020"
+            document.write("<hr>");
+
+            //1. Number()
+            //->숫자로 구성된 문자열을 숫자형으로 변환 가능
+            //참조 https://www.w3schools.com/jsref/jsref_number.asp
+            document.write(Number("10"));               //10
+            document.write("<hr>");
+            document.write(Number("10")+Number("20"));  //30
+            document.write("<hr>");
+            document.write(Number("10      "));         //10
+            document.write("<hr>");
+            document.write(Number("     10"));          //10
+            document.write("<hr>");
+            document.write(Number("10.23"));            //10.23
+            document.write("<hr>");
+            document.write(Number("KOREA"));            //NaN (Not a Number)
+            document.write("<hr>");
+            document.write(Number("1 2 3"));           //NaN (Not a Number)
+            document.write("<hr>");
+            
+
+
+
+
+            //2. parseInt() 중요!!!!!!!!!!!!!
+            //->숫자로 구성된 문자열을 정수형으로 변환
+            document.write(parseInt("10"));     //10
+            document.write("<hr>");
+            document.write(parseInt("-10"));    //-10
+            document.write("<hr>");
+            document.write(parseInt("10.23"));  //10
+            document.write("<hr>");
+            document.write(parseInt("SEOUL"));  //NaN (Not a Number)
+            document.write("<hr>");
+
+
+            //3. parseFloat()
+            //->숫자로 구성된 문자열을 실수형으로 변환
+            document.write(parseFloat("10"));       //10
+            document.write("<hr>");
+            document.write(parseFloat("10.23"));    //10.23
+            document.write("<hr>");
+            document.write(parseFloat("java"));     //NaN (Not a Number)
+            document.write("<hr>");
+            ////////////////////////////////////////////////////////////
+
+            //4. String()
+            //->문자형으로 변환
+            document.write(String(123));                //"123"
+            document.write("<hr>");
+            document.write(String(123)+String(456));    //"123456"
+            document.write("<hr>");
+
+
+
+            //5. toString()
+            //->문자형으로 변환
+            document.write((123).toString());           //"123"
+            document.write("<hr>");
+            document.write((123).toString()+(456).toString());    //"123456"
+            document.write("<hr>");
+            ////////////////////////////////////////////////////////////////
+
+            //6. Boolean값의 형변환
+            document.write(Number(true));           //1
+            document.write("<hr>");
+            document.write(Number(false));          //0
+            document.write("<hr>");
+
+            document.write(String(true));           //"true"
+            document.write("<hr>");
+            document.write(String(false));          //"false"
+            document.write("<hr>");
+
+
+
+
+
+
+        </script>
+        
+    </body>                      
+</html>                          

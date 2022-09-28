@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>19_skew.html</title> 
+        <style>
+            h1{text-align: center;}
+            h1>span{
+                width: 80px;
+                height: 80px;
+                font-size: 80px;
+                border: 1px solid black;
+                border-radius: 20px; /*모서리 라운드 처리*/
+                box-shadow: 2px 2px 4px blue;
+                margin: 5px;
+                display: inline-block; /*크기 지정도 가능하면서 글자를 앞으로 출력*/
+                }
+
+                /* 기울기 */
+                h1>span:nth-child(even){
+                    transform: skewY(-20deg);
+                }
+
+                h1>span:nth-child(odd){
+                    transform: skewY(20deg);
+                }
+        </style>
+    </head>
+    <body>                       
+        <!-- 기울기 -->
+        <h1>
+            <span>C</span>
+            <span>S</span>
+            <span>S</span>
+            <span>3</span>
+
+        </h1>
+    </body>                      
+</html>                          

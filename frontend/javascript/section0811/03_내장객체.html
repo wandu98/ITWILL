@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>03_내장객체.html</title> 
+    </head>
+    <body>                 
+        <h3>내장객체</h3>      
+
+
+        <script>
+            //참조 https://www.w3schools.com/js/js_objects.asp
+            //참조 https://www.w3schools.com/jsref/default.asp
+            /*
+                ● 자바스크립트 내장 객체(Object)
+                    -Object = 멤버변수 + 멤버함수로 구성
+                    -멤버변수, property, attribute, field, column
+                    -멤버함수, function, method
+                    -객체명.멤버변수
+                    -객체명.멤버함수()
+            */
+
+            //1. Math객체
+            //document.write(Math.abs(-3));
+            //document.write(Math.PI);
+
+            //2. Number객체
+            //document.write(Number("5"));
+            //document.write(Number("8.9"));
+
+
+            //3. Date 객체
+            //const d=new Date();
+            ////////////////////////////////////////
+
+            //4. window 객체
+            //참조  https://www.w3schools.com/jsref/obj_window.asp
+            //->객체명을 생략할 수 있다
+            //  1) alert()  경고장(확인)
+            //window.alert();
+            //alert();
+            //alert(123);
+            //alert("KOREA");
+            //alert("SEOUL");
+            //alert("'");
+            //alert('"');
+            //alert("\"");
+            //alert('\'');
+            //alert("서울\n제주\n\n부산");    // \n줄바꿈
+
+            // 2)confirm() 경고차(확인, 취소)
+            // -> boolean(true, false)값으로 반환된다
+            //window.confirm();
+            //confirm();  //window객체명 생략가능
+            //let flag=confirm("영구히 삭제됩니다\n지울까요?")
+            //alert(flag);
+
+            // 3)새창띄우기
+            //window.open();
+
+            // 4)인쇄창 띄우기
+            //window.print();
+
+            // 5)setInterval()과 setTimeout()
+            /*
+                - 주어진 시간에 따라 자동으로 함수 호출
+                - 시간 : 1 second = 1000 milliseconds.
+                - new version
+                    setInterval(함수명, 시간) : 주기적으로 함수 호출
+                    setTimeout(함수명, 시간)  : 한번만 호출
+                - old version
+                    setInterval("함수명()", 시간)
+                    setTimeout("함수명()", 시간) 
+
+                - 시간해제 : clearInterval(), clearTimeout()
+            */    
+            function hello(){
+                alert("안녕하세요~");
+            }//hello() end
+
+            //setInterval(hello, 3000); //3초마다 주기적으로 hello함수 호출
+            //setTimeout(hello, 3000);    //3초후에 hello함수 단 1번만 호출
+            /*
+                재귀적 함수 호출 관계를 이용해서 3초마다 주기적으로 hello함수 호출
+                function hello(){
+                    setTimeout(hello, 3000);
+                }
+            */
+
+
+            //5. screen객체
+            //->사용자 device의 해상도 확인
+            //alert(screen.width);
+            //alert(screen.height);
+
+
+            //6. location객체
+            //-> 페이지 이동
+            //-> location.href="URL 또는 페이지명"
+            //-> location="URL 또는 페이지명"
+            //location.href="https://www.itwill.co.kr/";
+            //location.reload();  //현재 페이지 새로고침
+
+
+            //7. history 객체
+            //-> 뒤로, 앞으로
+            history.back()      //뒤로
+            history.forward()   //앞으로
+            history.go(-2);     //뒤로 뒤로
+
+        </script>
+        
+    </body>                      
+</html>                          

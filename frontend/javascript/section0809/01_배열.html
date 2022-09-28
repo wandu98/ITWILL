@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>01_배열.html</title> 
+    </head>
+    <body>      
+        <h3>배열 Array</h3>                 
+        <script>
+            // 참조 https://www.w3schools.com/js/js_arrays.asp
+            /*
+                ● 배열 Array
+                    - 연속성 자료형, 열거형, 컬렉션
+                    - 하나의 변수에 1개 이상의 값을 저장할 수 있는 공간
+                    - element, 요소, 원소
+                    - index, 순서, 색인 (0부터 시작해서 1씩 증가한다)
+            */    
+
+            let kor=[];     //배열선언
+            kor[0]=10;      //배열 요소의 인덱스는 0부터 시작한다
+            kor[1]=20;      //배열 요소의 인덱스는 1씩 증가한다
+            kor[2]=30;
+
+            document.write(kor[0]);
+            document.write(kor[1]);
+            document.write(kor[2]);
+
+            let names=[];
+            names[0]="무궁화";
+            names[1]="개나리";
+            names[2]="진달래";
+
+            document.write(names[0]);
+            document.write(names[1]);
+            document.write(names[2]);
+            document.write("<hr>");
+
+            //배열선언
+            //let points=[];          //Good
+            //let points=new Array(); //Bad (Java형식)
+
+
+            //배열 선언 및 초기화
+            let points=[40, 100, 25, 3, 7];
+            document.write(points[0]);  //40
+            document.write(points[1]);  //100
+            document.write(points[2]);  //25
+            document.write(points[3]);  //3
+            document.write(points[4]);  //7
+            document.write("<hr>");
+
+            document.write(points.length);  //배열요소의 갯수 5
+            document.write(points)          //배열요소 전체 40,100,25,3,7
+            document.write("<hr>");
+            
+            for(let i=0; i<points.length; i+=1){
+                document.write(points[i]);
+            }//for end
+
+            document.write("<hr>");
+
+
+            let fruits=["Banana", "Orange", "Apple", "Mango"];
+            fruits[6]="Lemon";
+            document.write(fruits.length);  //배열요소의 갯수 7
+            document.write(fruits[6]);      //Lemon
+            document.write(fruits[4]);      //undefined
+            document.write(fruits[5]);      //undefined
+            document.write(fruits[8]);      //undefined
+
+            fruits[8]="Kiwi";
+            document.write(fruits.length);  //배열요소의 갯수 9
+
+
+
+
+
+        </script>
+        
+    </body>                      
+</html>        

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>03_text_html.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <h3>text() 와 html() 함수</h3>
+        <button>입력!!</button>
+        <hr>
+        <div id="text"></div>
+        <div id="html"></div>
+
+        <script>
+            //본문에 있는 <button>요소 접근
+            $("button").click(function(){
+                //alert();
+                let txt="<img src='../images/devil.png'>";
+
+                //JavaScript
+                document.getElementById("text").innerText=txt;
+                document.getElementById("html").innerHTML=txt;
+
+                //jQuery
+                $("#text").text(txt);   //단순 문자열   
+                $("#html").html(txt);   //문자열이 마크업 되면서 (요소생성)
+            });//click end
+        </script>
+        
+    </body>                      
+</html>                          

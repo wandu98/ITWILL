@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>16_ajax.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <style>
+            #loader {
+                width: 100%;
+                height: 100%;
+                background-color: #EDE9DF;
+                position: fixed;
+                left: 0;
+                top: 0;
+                background-image: url("loader.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                /*1)css추가:처음에서 숨겼다가*/
+                display: none;
+            }
+        </style>
+    </head>
+    <body>                       
+
+        <h3>배우 목록 보여주기</h3>
+
+        <div id="loader"></div>
+
+        <button>서버에게 요청!!</button>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>키</th>
+                    <th>몸무게</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3">없습니다</td>
+                </tr>
+            </tbody>
+    
+        </table>
+        
+
+        <script>
+            $("button").click(function(){
+                //2)loader이미지 보여줌
+                $("#loader").show();
+
+                //3)서버에 요청해서 응답메세지 받아오기(댓글더보기등)
+                $.ajax("actors.json", {
+                                        dataType:"json"
+                                        ,error:function(error){
+                                            alert(error);
+                                        }
+                                        ,success:function(result){
+                                           // alert(result);
+                                        
+                                           //4)기존의 <tbody>값을 전부 지움
+                                            $("tbody").empty();
+
+
+                                           //5)table의 tbody값 수정
+                                           $(result).each(function(){
+                                                //alert(this.name);
+                                                //alert(this.height);
+                                                //alert(this.weight);
+
+                                                //$("<tr>")     <tr> 요소 생성
+                                                //$("tr")       <tr> 요소 선택   
+                                                    
+                                                let $tr=$("<tr>");
+                                                let $td1=$("<td>").text(this.name);
+                                                let $td2=$("<td>").text(this.height);
+                                                let $td3=$("<td>").text(this.weight);
+
+                                                $tr.append($td1, $td2, $td3).appendTo("tbody");    
+                                           });//each() end
+
+                                           //6)로딩되고 있는 이미지를 서서히 숨김
+                                           $("#loader").fadeOut(400);
+                                        }//success end
+                });//ajax() end
+            });//click end
+
+        </script>
+        
+    </body>                      
+</html>                          

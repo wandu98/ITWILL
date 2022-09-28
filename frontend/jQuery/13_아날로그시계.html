@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>13_아날로그시계.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <script src="moment-with-locales.js"></script>
+        <style>
+            #wrap{
+                width:600px;
+                height:600px;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                margin: -300px 0 0 -300px;
+                font-family: bon,sans-serif;
+            }
+
+            #wrap h3{
+                height: 80px;
+                font-size: 50px;
+                text-align: center;
+                line-height: 80px;
+                font-weight: 700;
+                color: #424242;
+            }
+
+            /* 1)css추가 : 시계 전체 원형 이미지 출력 */
+            #clock{
+                width: 500px;
+                height: 500px;
+                background:url(../images/Clock-face.png);
+                background-size: 100% 100%;
+                margin: auto;
+                position: relative;
+                box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            }
+            /* 2)CSS추가 : 시분초 이미지 출력 */
+            #hour { background: url(../images/hour_hand.png); }
+            #min { background: url(../images/hour_hand.png); }
+            #sec { background: url(../images/hour_hand.png); }
+
+            /* 3)CSS추가 : 시분초이미지가 출력되는 위치 조정 */
+            .hand {width: 500px; height: 500px; position: absolute; left: 0; top: 0;}
+        </style>
+    </head>
+    <body>                       
+        
+        <div id="wrap">
+            <h3>아날로그시계</h3>
+            <div id="clock"> <!-- 시계 전체 원형 이미지-->
+                <div id="hour" class="hand"></div>  <!--시 이미지-->       
+                <div id="min" class="hand"></div>  <!--분 이미지-->       
+                <div id="sec"  class="hand"></div>  <!--초 이미지-->
+            </div>
+        </div>
+
+        <script>
+
+
+            showtime(); //최초 함수 호출   
+
+            function showtime(){
+                let now =moment();  //moment.js 시작
+                let hour=now.hour();
+                let min =now.minute();
+                let sec =now.second();
+
+                //4) 초, 분, 시 이미지 각도 꺽기 (한바퀴 360도)
+                $("#sec").css("transform", "rotate("+(sec*6)+"deg)"); //60초/360도
+                $("#min") .css("transform", "rotate("+((min*6)+(sec*0.1))+"deg)"); //60분/360도
+                $("#hour").css("transform", "rotate("+(30*hour+0.5*min)+"deg)"); //12시간/360도
+            }//showtime() end
+
+            //5)1초마다 주기적 또는 반복적으로 함수 호출
+            setInterval(showtime, 1000);
+
+        </script>
+        
+    </body>                      
+</html>                          

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>04_scope.html</title> 
+    </head>
+    <body>                      
+            
+        <h3>변수의 유효범위(SCOPE)</h3>
+
+        <input type="button" value="SCOPE1" onclick="alert('오필승')">
+        <input type="button" value="SCOPE2" onclick="alert('코리아')">
+        <hr>
+
+        <input type="button" value="SCOPE3" onclick="test3()">
+        <input type="button" value="SCOPE4" onclick="test4()">
+
+
+        <script>
+            //참조 https://www.w3schools.com/js/js_scope.asp
+            /* 
+                ●[변수의 종류]
+                 - 지역변수 local variable  : function함수내에 선언된 변수는 함수내에서만 사용 가능하다
+                 - 전역변수 global variable : function함수 외부에서 선언된 변수로 모든 함수내에서 그 값을 공유 
+            */
+
+            let one="하나";     //전역변수
+            
+            function test3(){
+                alert("one : " + one);
+                alert("two : " + two);
+                alert("three : " + three);
+
+                let uid="아이티윌";
+                alert(uid);
+                //alert(upw); 에러 upw is not defined
+            }//test3() end
+
+            let two="둘";      //전역변수
+
+            function test4(){
+
+                let two="두번째";
+
+                alert("one : " + one);
+                alert("two : " + two);      //두번째. 지역변수의 우선순위가 더 높다
+                alert("three : " + three);
+
+                let upw="1234";
+                alert(upw);
+                //alert(uid); 에러 uid is not defined
+            }//test4() end
+
+            let three="셋";   //전역변수
+            
+        </script>
+        
+    </body>                      
+</html>                          

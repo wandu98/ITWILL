@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>05_if.html</title> 
+    </head>
+    <body>                       
+
+        <h3>if조건문</h3>
+
+        <script>
+        /*
+           ● 제어문
+             - 프로그램의 흐름을 제어
+             - 조건문 : if문, switch~case문
+             - 반복문 : for문, while문, do~while문
+             - break문
+             - continue문
+
+           ● if 조건문 (boolean값으로 판단)
+             1) if (조건) { 조건이 true이면 처리 }
+
+             2) if (조건) { 조건이 true이면 처리 }
+                else { 조건이 false이면 처리 }
+
+             3) if (조건1) { 조건1이 true이면 처리}
+                else if (조건2) { 조건2이 true이면 처리 }
+                else if (조건3) { 조건3이 true이면 처리 }
+                else { 조건1, 2, 3까지 만족하지 않으면 무조건 처리 }
+        */
+
+            //성적 프로그램
+            let name="무궁화";
+            let kor=100, eng=100, mat=35;
+
+            let total=kor+eng+mat;       //총점 구하시오
+            let aver =parseInt(total/3); //평균 구하시오
+
+            document.write("이름 : " + name + "<hr>");
+            document.write("국어 : " + kor + "<hr>");
+            document.write("영어 : " + eng + "<hr>");
+            document.write("수학 : " + mat + "<hr>"); 
+            document.write("총점 : " + total + "<hr>");
+            document.write("평균 : " + aver + "<hr>");
+
+            //문1) 평균 95점이상이면 장학생을 출력하시오
+            if(aver>=95) { // 76>=95
+                document.write("<span style='color:red;font-weight:bold'>장학생</span><hr>");
+            }//if end
+
+
+            //문2) 국어점수가 70점이상이면 합격, 아니면 불합격
+            if (kor>=70) { //100>=70
+                document.write("국어:합격<hr>");
+            } else {
+                document.write("국어:불합격<hr>");
+            }//if end
+
+
+            //문3)수학점수가 90점이상이면 "A"
+            //              80점이상이면 "B"
+            //              70점이상이면 "C"
+            //              60점이상이면 "D" 
+            //              나머지는 "F"
+            if(mat>=90){ //85>=90
+                document.write("수학:A학점<hr>");
+            } else if(mat>=80) { //85>=80
+                document.write("수학:B학점<hr>");
+            } else if(mat>=70) {
+                document.write("수학:C학점<hr>");
+            } else if(mat>=60) {
+                document.write("수학:D학점<hr>");
+            } else {
+                document.write("수학:F학점<hr>");
+            }//if end
+
+
+            //문4)과락
+            //    평균이 70점이상이면 결과:합격
+            //    (단, 국영수 세과목중에서 한과목이라도 40점미만이면 결과:재시험)
+            //    평균이 70점미만이면 결과:탈락
+            
+            //1)OR조건
+            if(aver>=70){ //78>=70
+                if(kor<40 || eng<40 || mat<40){ //100<40 || 100<40 || 35<40
+                                                // false     false     true
+                                                // true
+                    document.write("결과:재시험<hr>");
+                }else{
+                    document.write("결과:합격<hr>");
+                }
+            }else{
+                document.write("결과:탈락<hr>");
+            }//if end
+
+
+            //2)AND조건
+            if(aver>=70){//78>=70
+                if(kor>=40 && eng>=40 && mat>=40){ //100>=40 && 100>=40 && 35>=40
+                                                   // true       true       false
+                                                   // false
+                    document.write("결과:합격<hr>");
+                }else{
+                    document.write("결과:재시험<hr>");
+                }
+            }else{
+                document.write("결과:탈락<hr>");
+            }//if end
+
+
+        </script>
+        
+    </body>                      
+</html>                          

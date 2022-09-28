@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>06_each반복문.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <style>
+            #displayList{
+                margin:20px;
+                width:400px;
+                height:300px;
+                background:#81D4FA;
+                padding:20px;
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>                       
+
+        <h3>each반복문</h3>
+        <button id="startBtn">7단!</button>
+        <ul id="displayList"></ul>
+
+        <script>
+            //참조 : https://www.w3schools.com/jquery/misc_each.asp
+
+            $("#startBtn").click(function(){
+                let dan=7;
+                for(i=1; i<=9; i++){
+                    //$("li")       <body>에 있는 요소들 중에서 <li>요소에 접근
+                    //$("<li>")     <body>에 새로운 <li>요소를 생성 
+                    $("<li>").text(dan+"*"+i+"="+(dan*i)).appendTo("#displayList");
+                }//for end
+
+
+
+                //jQuery의 each반복문
+                //->형식) $.each(배열, function(){})
+                //->형식) $(배열).each(function(){})
+
+                $("li").each(function(){
+                    let result=$(this).text();
+                    alert(result);
+                })//each() end
+                
+            }); //click end
+
+        </script>
+        
+    </body>                      
+</html>                          

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>05_while.html</title> 
+    </head>
+    <body>                       
+
+        <h3>while과 do~while</h3>
+
+        <script>
+        /*
+            1. while문
+                - 형식) while(조건) { 조건이 true이면 수행 }
+                - while(true){} 무한LOOP
+        */
+            let a=1;
+            while(a<=3) {
+                document.write(a);
+                document.write("JAVA");
+                a=a+1;
+            }//while end
+            /*
+                while(1<=3) {1 JAVA a=1+1}
+                while(2<=3) {2 JAVA a=2+1}
+                while(3<=3) {3 JAVA a=3+1}
+                while(4<=4)
+            */
+            document.write(a);//4
+
+            document.write("<hr>");
+
+        /*
+            2. do~while문
+              - 형식)  do {
+                           조건이 true이면 수행
+                       } while(조건);
+        */            
+            let b=1;
+            do{
+                document.write(b);
+                document.write("Python");
+                b=b+1;
+            }while(b<=3);
+            /*
+                do { 1 Python b=1+1 } while(2<=3)
+                do { 2 Python b=2+1 } while(3<=3)
+                do { 3 Python b=3+1 } while(4<=3)
+            */
+
+            document.write("<hr>");
+
+            //do~while문은 조건이 틀리더라도 무조건 1번 수행된다
+            let c=5;
+            do{
+                document.write("jQuery");
+                c=c+1;
+            }while(c<=3);
+            /*
+                do { jQuery c=5+1 } while(6<=3)
+            */
+           
+        </script>
+        
+    </body>                      
+</html>                          

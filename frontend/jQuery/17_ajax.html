@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>17_ajax.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <button>* JSON 데이터 받아오기</button>
+
+
+        
+        <script>
+            $("button").click(function(){
+                $.ajax("actors.json", {
+                    dataType:"json"
+                    ,error:function(xhr, status, error){
+                        alert("ERROR!!");
+                        alert(xhr);
+                        alert(status);
+                        alert(error);
+                    }
+                    ,success:function(result, status, xhr){
+                        alert("SUCCESS~~");
+                        alert(result);
+                        alert(status);
+                        alert(xhr);
+                    }
+                })//ajax() end
+            });//click end
+
+        </script>
+        
+    </body>                      
+</html>                          

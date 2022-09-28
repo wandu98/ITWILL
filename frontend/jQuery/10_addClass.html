@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>10_addClass.html</title>
+        <link rel="stylesheet" href="../css/reset.css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+        <style>
+            #box{
+                width:620px;
+                height:465px;
+                border:1px solid #9e9e9e;
+                margin:-233.5px 0 0 -310px;
+                left:50%;
+                top:50%;
+                position: fixed;
+                box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+                overflow: hidden;
+            }
+
+            #startBtn{
+                width:620px;
+                height:465px;
+                position: absolute;
+                font:700 100px "Noto Sans KR",sans-serif;
+                /*1)CSS추가*/
+                background-color: #66ffff;
+                color: #ffffff;
+                border:0;
+                cursor: pointer;
+                left:0; /*왼쪽에서부터 시작*/
+                transition: .3s ease; /*부드럽게*/
+            }
+
+            /*2)CSS추가*/
+            #startBtn:hover {
+                background: #0033ff;
+            }
+
+            /*3)CSS추가*/
+            img{
+                opacity:0;
+                transform:scale(0);
+                transition: .4s ease;
+            }
+
+            /*4)CSS추가*/
+            #box.open #startBtn{
+                left:-100%;
+                transition: .4s ease;
+            }
+
+            /*5)CSS추가*/
+            #box.open img{
+                opacity:1;
+                transform:scale(1);
+                transition: .4s ease;
+            }
+
+        </style>
+    </head>
+    <body>                       
+
+        <div id="box">
+            <button id="startBtn">스타트!</button>
+            <img src="../images/kakaofriends.jpeg" />
+        </div>
+        
+        <script>
+           $("#startBtn").click(function(){
+            $("#box").addClass("open");
+           });//click end
+
+           $("img").click(function(){
+            $("#box").removeClass("open");
+           });//click end
+
+        </script>
+        
+    </body>                      
+</html>                          

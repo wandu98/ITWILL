@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>03_Date객체.html</title> 
+    </head>
+    <body>               
+        
+        <h3>Date객체</h3>
+        현재날짜 <div id="clock"></div>
+        <script>
+            //참조 https://www.w3schools.com/js/js_dates.asp
+            //Date 날짜 관련 내장 객체
+
+            const d=new Date(); //시스템의 현재 날짜 정보 가져오기 
+            /*
+            document.write(d.getFullYear());
+            document.write("<br>");
+            document.write(d.getMonth());
+            document.write("<br>");
+            document.write(d.getMonth()+1);
+            document.write("<br>");
+            document.write(d.getDate());
+            document.write("<hr>");
+
+            document.write(d.getHours());
+            document.write("<br>");
+            document.write(d.getMinutes());
+            document.write("<br>");
+            document.write(d.getSeconds());
+            document.write("<hr>");
+
+            const days=["일","월","화","수","목","금","토"];
+            document.write(days[d.getDay()]);
+            document.write("<hr>");
+            */
+
+            //문) 날짜변수 d값을 이용해서 날짜 정보를 아래와 같이 구성해서 id=clock에 출력하시오
+            //    2022.08.10 (수) PM 3:05:42
+            /*let today="";
+            const days=["일","월","화","수","목","금","토"];
+            today += d.getFullYear() + "."; //2022.
+            today +=("0" + (d.getMonth() + 1)).slice(-2) + ".";
+            today += d.getDate();
+            */
+           let today ="";
+           today += d.getFullYear() + ".";      //2022.
+
+           if(d.getMonth()+1<10){
+                today += "0";
+           }//if end
+           today += d.getMonth()+1 + ".";       //2022.08.
+
+           if(d.getDate()<10){
+                today += "0";
+           }//if end
+           today += d.getDate();                //2022.08.10
+
+           switch(d.getDay()){
+                case 0 : today+="   (일) "; break;
+                case 1 : today+="   (월) "; break;
+                case 2 : today+="   (화) "; break;
+                case 3 : today+="   (수) "; break;
+                case 4 : today+="   (목) "; break;
+                case 5 : today+="   (금) "; break;
+                case 6 : today+="   (토) "; break;
+           }//switch end
+
+
+           if(d.getHours()<12){
+                today += " AM "
+           }else{
+                today += " PM "                       //2022.08.10 (수) PM 
+           }//if end
+
+           if(d.getHours()<13){
+                today += d.getHours() + ":";
+           }else{
+                today += d.getHours()-12 + ":";     //2022.08.10 (수) PM 4:
+           }//if end
+
+           if(d.getMinutes()<10){
+                today += "0";
+           }//if end
+           today += d.getMinutes() + ":";           //2022.08.10 (수) PM 4:55:
+
+           if(d.getSeconds()<10){
+                today += "0";
+           }//if end
+           today += d.getSeconds();                 //2022.08.10 (수) PM 4:55:19
+
+            document.getElementById("clock").innerText = today;
+
+        </script>
+        
+    </body>                      
+</html>                          

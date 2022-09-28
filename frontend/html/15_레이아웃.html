@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>15_레이아웃.html</title> 
+    </head>
+    <body>                       
+        <!-- 참조 https://www.w3schools.com/html/html_layout.asp --  -->
+        <!-- 참조 https://www.w3schools.com/css/css_rwd_intro.asp -->
+        <!-- 참조 NCS학습모듈(화면구현) https://ncs.go.kr/ -->
+
+        <DIV id="wrap" style="background-color:red;">#wrap전체블럭
+            <div id="header" style="background-color:pink;">#header</div>
+            <div id="main" style="background-color:orange;">#main
+                <div id="sub" style="background-color:aqua;">#sub</div>
+                <div id="content" style="background-color:gold;">#content</div>
+            </div><!-- id=main 끝 -->
+            <div id="footer" style="background-color:blue;">#footer</div>
+        </DIV><!-- id=wrap 끝 -->
+        <br>
+
+        <!-- 연습) 동행복권 웹페이지 레이아웃 -->
+        <!-- 참조 https://dhlottery.co.kr -->
+        <div id="wrap">
+            <div id="header">
+                <div>
+                    <span>동행복권</span>
+                        <input type="button" value="로그인">
+                        <input type="button" value="회원가입">
+                        <input type="button" value="마이페이지">
+                        <input type="button" value="고객센터">
+                </div>
+                <div>
+                    <h1 style="display: none;">대분류</h1>
+                    <ul style="list-style: none;">
+                        <li>복권구매</li>
+                        <li>복권정보</li>
+                        <li>당첨결과</li>
+                        <li>판매점</li>
+                        <li>이벤트</li>
+                        <li>행복공감</li>
+                    </ul>
+                </div>
+            </div> <!-- header end-->
+            <div id="main"> 
+                <div id="sub">
+                    <h2 style="display: none;">중분류</h2>
+                    <span>판매점</span><br>
+                    <ul style="list-style: none;">
+                        <li>구입처안내</li>
+                        <li>당첨판매점</li>
+                    </ul>
+                </div><!-- sub end -->
+                <div id="content">
+                    <h3 style="display: none;">소분류</h3>
+                    <span>로또6/45판매점 조회</span> <br>
+                    <table border="1">
+                        <tr>
+                            <td>
+                                <strong>지역으로 검색</strong><br>
+                                <form>
+                                    <select id="sido" name="sido">
+                                        <option>시/도선택</option>
+                                        <option>경기</option>
+                                        <option selected>서울</option>
+                                        <option>부산</option>                                       
+                                    </select>
+                                    <select name="gugun" id="gugun">
+                                        <option>구/군선택</option>
+                                        <option>종로구</option>
+                                        <option selected>강남구</option>
+                                        <option>마포구</option>
+                                    </select>
+                                    <input type="button" value="조회">
+                                </form>
+                            </td>
+                            <td>
+                                <strong>상호/지역(읍/면/동)으로 검색</strong>
+                                <form>
+                                    <select id="sangho" name="sangho">
+                                        <option>상호</option>
+                                        <option>지역(읍/면/동)</option>
+                                    </select>
+                                    <input type="text" id="keyword" name="keyword">
+                                    <input type="button" value="조회">
+                                </form>
+                            </td>
+                        </tr>
+                        </table>
+                        <br>
+                        <table border="1">
+                        <tr>
+                            <th>상호명</th>
+                            <th>전화번호</th>
+                            <th>소재자</th>
+                            <th>위치보기</th>
+                        </tr>
+                        <tr>
+                            <td>도곡행운로또방</td>
+                            <td>070-4211-6109</td>
+                            <td>서울 강남구 도곡로4길 11 102호</td>
+                            <td>
+                                <a href=""><img src="../images/search.png"></a>
+                            </td>
+                        </tr>
+                        </table>
+                </div><!-- content end -->
+            </div><!-- main end -->
+            <div id="footer"> 
+                <h1 style="display: none;">꼬리말</h1>
+                <ol style="list-style-type: none;">
+                    <li>이용약관</li>
+                    <li>개인정보 처리방침</li>
+                    <li>인쇄복권당첨금지급기준</li>
+                </ol>
+                주소 : 06719 서울 서초구 남부순환로 2423 한원빌딩 4층 고객문의 1588-6450 FAX-02-6933-306
+                </iframe>
+            </div> <!-- footer end-->
+        </div><!-- wrap end-->
+
+
+
+
+
+
+
+
+
+
+    </body>                      
+</html>                          

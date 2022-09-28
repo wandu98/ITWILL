@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>02_이벤트.html</title> 
+    </head>
+    <!-- <body onload="alert('어서와~~')"> -->
+    <body>                 
+        
+        <h3>이벤트</h3>
+
+        <form name="myform" id="myform" method="get" action="ok.jsp" onsubmit="return true">
+            <!-- 
+                onsubmit 이벤트는 해당폼(myform)이 서버로 전송될때 
+                return값이 true이면 해당폼이 전송된다
+                return값이 false이면 전송되지 않는다
+
+             -->
+            <input type="button" value="버튼1" onclick="alert('버튼1클릭')">
+            <hr>
+            <input type="button" value="아이티윌" onclick="location.href='https://www.itwill.co.kr/'">
+            <hr>
+            <input type="button" value="마우스" onmouseover="alert('마우스over')"
+                                              onmouseout="alert('마우스out')">
+            <hr>
+            <input type="text" onkeydown="alert('키보드누름')">
+            <textarea rows="5" cols="10" onkeydown="alert('키보드누름')"></textarea>
+            <hr>
+
+            <select onchange="alert('목록변경')")>
+                <option>서울</option>
+                <option selected>제주</option>
+                <option>부산</option>
+            </select>
+            <hr>
+
+            <!-- 텍스트 입력장자에 커서가 들어왔을때 onfocus 이벤트 -->
+            <input type="text" onfocus="alert('커서들어옴')">
+            <hr>
+
+            <!-- 서버로 해당폼을 전송될때 이벤트 onsubmit -->
+            <input type="submit" value="전송1">
+            <button>전송2</button>                                  <!-- 기본속성이 submit-->
+            <input type="image" src="../../images/search.png">     <!-- 기본속성이 submit-->
+
+
+        </form>
+        <script>
+            //참조 https://www.w3schools.com/js/js_events.asp
+            /*
+                - 자바스크립트는 주로 이벤트를 발생시킨 후 함수를 호출함으로써 실행한다
+                - 기본 이벤트의 종류 
+                    onchange	다른 객체로 바뀌었을때
+                    onclick	    마우스 클릭했을때
+                    onmouseover	마우스가 올려졌을때
+                    onmouseout	마우스가 나갔을때
+                    onkeydown	키보드를 눌렀을때
+                    onload	    문서를 불러오는 작업이 끝났을 때
+            */    
+        </script>
+        
+    </body>                      
+</html>                          

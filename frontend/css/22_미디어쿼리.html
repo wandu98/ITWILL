@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>22_미디어쿼리.html</title> 
+        <style>
+            /* 1)기본*/
+            /*
+            div{
+                width: 100%;
+                height: 200px;
+                font-size: 12px;
+                border: 2px solid red;
+
+            }
+            */
+
+            /* 2)Used for computer screens, tablets, smart-phones etc.*/
+            @media screen {
+                div {
+                    width: 100%;
+                    height: 200px;
+                    font-size: 12px;
+                    border: 2px solid green;
+                }
+
+                /*Used for printers*/
+                @media print {
+                    div{
+                        width: 100%;
+                        height: 200px;
+                        font-size: 12px;
+                        border: 2px solid yellow;
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>                       
+        <!-- 참조 https://www.w3schools.com/css/css3_mediaqueries.asp -->
+        <div>
+            <h3>미디어쿼리</h3>
+            - 화면크기 마다 각각 다르게 CSS를 적용하는 것이다.
+            - 화면 사이즈를 인식해 서로 다른 CSS를 적용시켜준다. 
+            - 보통은 스마트폰, 태블릿 , PC 화면 3개 정도를 구분해준다.
+            - 화면 크기가 변할때 스타일을 바뀌도록 해서 반응형 웹을 구현할 수 있다
+            <hr>
+
+            <h3>반응형 웹 디자인(Responsive web design, RWD)</h3>
+              - 하나의 웹사이트에서 PC, 스마트폰, 태블릿 PC 등 접속하는 디스플레이의 종류에 따라 
+                화면의 크기가 자동으로 변하도록 만든 웹페이지 접근 기법을 말한다
+              - 디바이스 별로 각각 레이아웃(grid)이 달라지는 웹
+        </div>
+
+    </body>                      
+</html>                          

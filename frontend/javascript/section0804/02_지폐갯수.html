@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>02_지폐갯수.html</title> 
+        <style>
+           
+        </style>
+    </head>
+    <body>                       
+        <div id="demo"></div>
+        
+      
+
+        <script>
+            //연습) 각 지폐갯수를 구해서 표작성해서 본문 id=demo에 출력하시오
+            /*
+
+            */
+
+            let money=54320;
+            //document.write(money/10000);
+            //document.write("<hr>");
+            //document.write(money%10000);
+
+            let m=parseInt(money/10000);    //5
+            // money=money%10000;
+            money%=10000;                   //4320
+
+            let c=parseInt(money/1000);     //4
+            money%=1000;                    //320
+
+            let b=parseInt(money/100);      //3
+            money%=100;                     //20
+
+            let s=parseInt(money/10);       //2
+
+            let result=""; //결과값
+            result+="<table border='1'>"; //result+=""
+            result+="<tr>";
+            result+= "   <th>만원</th>";
+            result+= "   <td>" + m + "장</td>";
+            result+= "</tr>";
+            result+= "<tr>";
+            result+= "   <th>천원</th>";
+            result+= "   <td>" + c + "장</td>";
+            result+= "</tr>";
+            result+= "<tr>";
+            result+= "   <th>백원</th>";
+            result+= "   <td>" + b + "장</td>";
+            result+= "</tr>";
+            result+= "<tr>";
+            result+= "   <th>십원</th>";
+            result+= "   <td>" + s + "장</td>";
+            result+= "</tr>";
+            result+= "</table>";
+
+            document.getElementById("demo").innerHTML=result;
+            
+
+
+
+          
+
+            
+            
+
+          
+            
+
+            
+
+        </script>
+        
+    </body>                      
+</html>                          

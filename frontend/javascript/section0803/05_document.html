@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>05_document.html</title> 
+        <style>
+            #demo{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background-color: aqua;
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>                       
+
+        <div id="demo"></div>
+
+
+
+        <script>
+            // ● 객체 Object
+            // -> 객체명.멤버함수()
+            // -> 객체명.멤버변수
+
+            //  ● document 객체
+            // -> HTML페이지의 본문 <body> 가리키는 객체
+
+           document.write(123);
+           document.write("대한민국");
+           document.write("<hr>");
+
+           document.write(3+5);    // 8
+           document.write("<hr>"); 
+           document.write(3+"5");  // 35
+           document.write("<hr>");
+           document.write("3"+5);  // 35
+           document.write("<hr>");
+           document.write("3+5");  // 3+5
+           document.write("<hr>");
+
+           let name="손흥민";
+           let age=25;
+           let height=178.9;
+
+           document.write("이름:" + name + "<hr>");
+           document.write("나이" + age + "<hr>");
+           document.write("키" + height + "<hr>");
+
+           //자바스크립트에서 HTML tag사용시 문자열 처리해서 사용한다
+           document.write("<hr>");
+           document.write("개나리<br> <p>진달래</p>");
+           document.write("<img src='../../images/monkey.png'>");
+           /////////////////////////////////////////////////////////////////
+
+           let str=""; //빈문자열(글자 수 0개)
+           str=str+"ONE";
+           document.write("<br>");
+           document.write(str);
+           document.write("<hr>");
+           
+           str=str+"TWO";
+           document.write(str);
+           document.write("<hr>");
+           
+           str=str+"THREE";
+           document.write(str);
+           document.write("<hr>");
+           ////////////////////////////////////////////////////////////
+
+           //본문<body>에 있는 id 속성 접근
+           //1)순수 Javascript 접근 
+           //document.getElementById("demo")
+           //document.getElementById("demo").innerHTML="아이티윌"
+
+
+           //2)jQuery 접근 (jQuery 라이브러리)
+           //$("#demo")
+           //$("#demo").val("아이티윌")
+
+           //연습) 이름, 나이, 키 값들을 해서 id=demo에 출력하시오
+           name="김연아";
+           age=30;
+           height=165.7;
+           
+           let result=""; //결과값
+           result=result + "<table border='1'>";
+           result=result + "<tr>";
+           result=result + "   <th>이름</th>";
+           result=result + "   <td>" + name + "</td>";
+           result=result + "</tr>";
+           result=result + "<tr>";
+           result=result + "   <th>나이</th>";
+           result=result + "   <td>" + age + "</td>";
+           result=result + "</tr>";
+           result=result + "<tr>";
+           result=result + "   <th>키</th>";
+           result=result + "   <td>" + height + "</td>";
+           result=result + "</tr>";
+           result=result + "</table>";
+           
+            document.getElementById("demo").innerHTML=result; // 결과값을 HTML tag형식으로 출력
+            // document.getElementById("demo").innerText=result;   // 결과값을 문자열로 출력
+
+
+        </script>
+        
+    </body>                      
+</html>                          

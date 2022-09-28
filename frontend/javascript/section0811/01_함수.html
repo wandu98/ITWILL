@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>05_함수.html</title> 
+    </head>
+    <body>                    
+        
+        <h3>사용자 정의 함수</h3>
+        <script>
+        //참조 https://www.w3schools.com/js/js_functions.asp
+        /*
+            ● 함수, function, method 중요!!!!★★★★★
+                - 일정한 기능을 가지고 있다
+                - 함수작성(정의), 함수호출
+                - 형식) function 함수명() {}
+                - 함수는 작성(정의)하고, 그 함수를 호출함으로써 실행한다
+                - 예) document.write()  ()값을 웹브라우저 본문영역(<body>)에 출력하는 함수
+
+             ● 함수 작성시 고려사항
+                - 매개변수(parameter)가 있는지?
+                - 리턴값(return)이 있는지?       
+        */
+
+            function test1(){
+                document.write("KOREA");
+            }//test1() end
+
+            function test2(){
+                document.write("SEOUL");
+            }//test2() end
+
+            function test3(a){//a는 매개변수(parameter)
+                              //매개변수는 자료형이 없다
+                              //let, var, const 사용불가
+                document.write(a);
+            }//test3() end
+
+            function test4(a, b, c){
+                document.write(a+b+c);
+            }//test4 end
+
+            function test5(ch, num){
+                for(a=1; a<=num; a++){
+                    document.write(ch);
+                }//for end
+            }//test5 end
+            /////////////////////////////////////
+
+            //1. 전달값이 없는 경우 (argument value)
+            test1();    //함수 호출
+            test1();
+            test2();
+            test1();    
+
+            //2. 전달값이 있는 경우
+            test3(10);
+            test3(20);
+            test3(30);
+
+            //전달값은 1개 이상 가능하다
+            test4(50, 60, 70);
+            test4(-3, -2, -1);
+            document.write("<br>");
+             
+            //문)#기호를 100번 출력하기
+            test5("#", 100);
+
+
+        </script>
+        
+    </body>                      
+</html>                          

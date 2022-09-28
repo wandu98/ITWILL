@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>08_연산자.html</title> 
+    </head>
+    <body>                       
+
+        <h3>연산자</h3>
+
+        <script>
+            //연산자 우선 순위
+            //->최우선 연산자 ()
+            //->산술 -> 비교 -> 논리
+            //->후순위 연산자 = 대입연산자
+
+
+            //1. 결합연산자
+            document.write(3+4+5/2);    //9.5
+            document.write((3+4+5)/2);  //6
+            document.write("<hr>");
+
+            //2. 대입연산자
+            let num=3;
+
+            num=num+2;
+            document.write(num+"<hr>"); //5
+
+            num+=2;
+            document.write(num+"<hr>"); //7
+            
+            num-=3;
+            document.write(num+"<hr>"); //4
+
+            num-=3;
+            document.write(num+"<hr>"); //1
+
+            num*=10;
+            document.write(num+"<hr>"); //10
+
+            num/=2;
+            document.write(num+"<hr>"); //5
+
+            num%=4;
+            document.write(num+"<hr>"); //1
+
+
+            //3. 1증감 연산자
+            let a= 3;
+            a+=1;   //4
+            document.write(a +"<hr>");  
+            a+=1;   //5
+            document.write(a +"<hr>"); 
+            a++;    //6
+            document.write(a +"<hr>"); 
+            a++;    //7
+            document.write(a +"<hr>"); 
+
+            
+            let b=3;
+            b=b-1;  //2
+            document.write(b +"<hr>");  
+            b-=1;   //1
+            document.write(b +"<hr>");  
+            b--;    //0
+            document.write(b +"<hr>");  
+            --b;    //-1
+            document.write(b +"<hr>"); 
+
+
+
+            //1증감연사자는 다른 계산식과 같이 사용할 경우 주의!!
+            let c=10;
+            let d=20;
+            let i=c++;  //i=c    (1순위 ++ <- 이게 뒤에 있으면 나중에 증가) 
+                        //연산자 우선순위 참고 https://dasima.xyz/javascript-operator-priority/
+                        //자바스크립트 증감 연산자 ++i, i++ 등 정리 참고 https://dasima.xyz/javascript-incre-decre-operators/
+                        //c=c+1  (2순위)
+            let j=--d;  //d=d-1
+                        //j=d
+            document.write(c+d+i+j); //11 19 10 19
+            document.write("<hr>"); 
+            
+
+        </script>
+        
+    </body>                      
+</html>                          

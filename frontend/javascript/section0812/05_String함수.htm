@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>05_String함수.html</title> 
+    </head>
+    <body>                       
+
+        <h3>String Methods</h3>
+        <script>
+            // 참조 https://www.w3schools.com/js/js_string_methods.asp
+
+            let str="Gone With The Wind"
+
+            document.write(str.length); //18 글자 갯수
+            document.write("<hr>");
+            document.write(str.charAt(0)); //"G" 0번째 글자
+            document.write("<hr>");
+            document.write(str.charAt(17)); //글자 갯수
+            document.write("<hr>");
+            document.write(str.charAt(str.length-1)); //"d" 마지막 글자
+            document.write("<hr>");
+
+            document.write(str.toUpperCase());        // 전부 대문자로 치환
+            document.write("<hr>");
+            document.write(str.toLowerCase());        // 전부 소문자로 치환
+            document.write("<hr>");
+            document.write(str.replace("n", "N"));
+            document.write("<hr>");
+
+            //★★★★★
+            document.write(str.substring(6, 12));       //6번째~(12-1)번째 까지
+            document.write("<hr>");
+            document.write(str.substring(10, 13));       //"The"
+            document.write("<hr>");
+
+            //맨 앞글자 자르기
+            document.write(str.substring(0, 1));       
+            document.write("<hr>");
+            //맨 마지막 자르기
+            document.write(str.substring(17,18));      
+            document.write("<hr>");
+            document.write(str.substring(str.length-1, str.length));      
+            document.write("<hr>");
+
+            document.write(str.slice(10, 13));  //"The"
+            document.write("<hr>");
+
+
+            //문자열 합치기
+            let text1="Hello";
+            let text2="World";
+            let text3=text1.concat(text2);
+            document.write(text3);          //"Helloworld"
+            document.write("<hr>");
+
+            //문자열 맨앞, 맨뒤 공백제거하기
+            let text4="     Java    Script      ";
+            document.write("#"+text4.trim()+"#");   //"#Java Script#"
+            document.write("<hr>");
+
+            //4칸을 기준으로 빈칸은 0으로 앞에서 부터 채우기
+            let text5="9";
+            document.write(text5.padStart(4, 0));   //0009
+            document.write("<hr>");
+
+            //4칸을 기준으로 빈칸은 0으로 뒤에서 부터 채우기
+            let text6="8";
+            document.write(text6.padEnd(4, 0));     //8000
+            document.write("<hr>");
+
+
+
+        </script>
+        
+    </body>                      
+</html>                          

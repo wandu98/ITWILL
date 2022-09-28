@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>06_audio.html</title> 
+    </head>
+    <body> 
+
+        <div style="text-align: center;">
+            <h3>음악목록</h3>
+            <img src="../../music/gangnamstyle.jpg" id="poster" width="300px" height="250px">
+            <br><br>
+            <audio src="../../music/gangnamstyle.mp3" id="audio1" controls></audio>  
+        </div>
+        <hr>
+        <div style="margin: auto; width: 50%">
+            <ol>
+                <li><a href="javascript:loadMusic('../../music/genie.jpg','../../music/genie.mp3')">소원을 말해봐</a></li>
+                <li><a href="javascript:loadMusic('../../music/Anne-Marie.jpg','../../music/Anne-Marie.mp3')">2002</a></li>
+                <li><a href="javascript:loadMusic('../../music/candy.jpg','../../music/candy.mp3')">내귀에 캔디</a></li>
+                <li><a href="javascript:loadMusic('../../music/gangnamstyle.jpg','../../music/gangnamstyle.mp3')">강남스타일</a></li>
+            </ol>
+        </div>
+        <script>
+            function loadMusic(jpg, mp3){
+                //alert("#" + jpg + "#");
+                //alert("#" + mp3 + "#");
+                let poster=document.getElementById("poster");
+                let audio=document.getElementById("audio1");
+
+                poster.src=jpg;
+                audio1.src=mp3;
+
+                audio1.play();
+
+            }//loadMusic() end
+
+        </script>
+        
+    </body>                      
+</html>                          

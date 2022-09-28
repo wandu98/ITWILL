@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>01_style접근.html</title> 
+    </head>
+    <body>             
+        
+            <h3>자바스크립트에서 스타일 접근</h3>
+
+            <div id="mydiv" style="position:relative;
+                                   top: 10px;
+                                   left: 20px;
+                                   width: 150px;
+                                   height: 70px;
+                                   background-color: red;">대한민국</div>
+            <hr>
+            <input type="button" value="mydiv의 stlye속성" onclick="test1()">
+            <hr>
+            <input type="button" value="mydiv의 stlye변경" onclick="test2()">
+            <hr>
+            <img src="../../images/agumon.png" id="myimg">
+            <img src="../../images/mastar1.jpeg" id="myig">
+            <br>
+            <input type="button" value="디지몬진화" onclick="test3()">
+            <br>
+            <input type="button" value="신태일 진화" onclick="test4()">
+
+
+
+        <script>
+            function test1(){
+               /* alert(document.getElementById("mydiv"));        //[object HTMLDivElement]
+                //순수 자바스크립트 스타일 접근
+                alert(document.getElementById("mydiv").style);  //[object CSSStyleDeclaration]
+
+                //jQuery에서 스타일 접근(추천)
+                $("#mydiv").css()
+                */
+
+                alert(document.getElementById("mydiv").style.top);
+                alert(document.getElementById("mydiv").style.left);
+                alert(document.getElementById("mydiv").style.width);
+                alert(document.getElementById("mydiv").style.height);
+                alert(document.getElementById("mydiv").style.backgroundColor);
+                alert(document.getElementById("mydiv").style.position);
+
+            }//test1() end
+
+            function test2(){
+                document.getElementById("mydiv").style.top="100px";
+                document.getElementById("mydiv").style.left="150px";
+                document.getElementById("mydiv").style.width="400px";
+                document.getElementById("mydiv").style.height="300px";
+                document.getElementById("mydiv").style.backgroundColor="orange";
+                document.getElementById("mydiv").style.position="absolute";
+            }
+
+            function test3(){
+                document.getElementById("myimg").src="../../images/wargreymon.jpeg";
+            }
+            function test4(){
+                document.getElementById("myig").src="../../images/mastar.jpeg";
+            }
+        </script>
+        
+    </body>                      
+</html>                          

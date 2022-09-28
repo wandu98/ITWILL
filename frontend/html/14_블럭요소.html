@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>14_블럭요소.html</title> 
+    </head>
+    <body>                       
+        <!-- 참조 https://www.w3schools.com/html/html_blocks.asp -->
+        <!-- 특정영역에 대해서 블럭을 지정할 수 있다 -->
+        <!-- 블럭요소의 크기는 자신이 감싸는 내용과 상관없이 자신의 영역을 가지고 있음 -->
+
+        <h3>1. 블럭요소 block</h3>
+        <!-- 블럭이 없는 경우 -->
+        Text1
+        Text2
+        Text3
+        <hr>
+
+        <!-- 블럭이 있는 경우 -->
+        <div>Text1</div>
+        <div>Text2</div>
+        <div>Text3</div>
+        <hr>
+
+        <!-- 블럭인용구 -->
+        <blockquote>Text1</blockquote>
+        <blockquote>Text2</blockquote>
+        <blockquote>Text2</blockquote>
+        <hr>
+        
+        <pre>
+            서울특별시
+            강남구              테헤란로
+            삼원    타워    4층 아이티윌
+        </pre>
+
+
+
+        <h3>2. 인라인 요소 inline</h3>
+        <!-- 인라의 요소의 크기는 자신이 감싸는 내용과 밀접하며.
+             내용의 크기가 자신의 크기가 된다  -->
+        <strong>진하게</strong>
+        <u>밑줄</u>
+        <i>기울임</i>
+        <a>링크</a>
+        <span>아이티윌</span>
+        <textarea cols="10" rows="3"></textarea>
+        <hr>
+
+        <h3>3. block요소의 크기</h3>
+        <div style="background-color:blue;">DIV</div>
+        <blockquote style="background-color:aqua;">BLOCKQUOTE</blockquote>
+        <pre style="background-color:green;">PRE</pre>
+        <h1 style="background-color:pink;">H1</h1>
+        <ul style="background-color:brown;">
+            <li>JAVA</li>
+            <li>PYTHON</li>
+        </ul>
+        <hr>
+
+
+        <h3>4. inline요소의 크기</h3>
+        <strong style="background-color:purple">손흥민</strong>
+        <span style="background-color:chocolate">김연아</span>
+        <hr>
+
+
+        <!-- 블럭요소의 인라인요소는 css에서 주로 편집한다 -->
+        <div style="background-color:aqua; width: 250px; height: 200px;"></div>
+
+    </body>                      
+</html>                          

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>04_continue.html</title> 
+    </head>
+    <body>                       
+
+        <h3>break와 continue</h3>
+
+        <script>
+            //break    : 반복문을 빠져나옴
+            //continue : 반복문을 계속 실행
+
+            for(let a=1; a<10; a=a+1){
+                if(a==5){
+                    break;
+                }//if end
+                document.write(a); //1234
+            }//for end
+            /*
+                a=1  1<10  {if(1==5)  1}  a=1+1
+                     2<10  {if(2==5)  2}  a=2+1
+                     3<10  {if(3==5)  3}  a=3+1
+                     4<10  {if(4==5)  4}  a=4+1
+                     5<10  {if(5==5){break} }
+            */
+            //document.write(a); 에러. for문에서 선언한 변수는 for문 안에서만 유효하다
+
+            document.write("<hr>");
+
+            for(let a=1; a<10; a=a+1){
+                if(a==5){
+                    continue;
+                }//if end
+                document.write(a); //12346789
+            }//for end
+
+
+
+        </script>
+        
+    </body>                      
+</html>                          

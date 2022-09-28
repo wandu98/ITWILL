@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>01_성적표.html</title> 
+    </head>
+    <body>                       
+
+        <h3>성적표</h3>
+        <div id="demo"></div>
+
+        <script>
+            let name="손흥민";
+            let kor=100, eng=100, mat=95;
+
+            let total=kor+eng+mat; //총점구하기
+            let aver =total/3;     //평균구하기
+
+            /*
+                    ● 출력결과 (표작성해서 본문 id=demo에 출력)
+                    -----------------------------
+                    이름    손흥민
+                    -----------------------------
+                    국어    100
+                    -----------------------------
+                    영어    100
+                    -----------------------------
+                    수학    95
+                    -----------------------------
+                    총점    235
+                    -----------------------------
+                    평균    98
+                    -----------------------------
+                            A학점                    문1) 평균 90이상 A, 80이상 B, 70이상 C, 60이상 D, 나머지는 F ~~
+                    결과    합격                     문2) 과락(합격, 재시험, 탈락)
+                            *********               문3) 평균 10점당 * 한개씩
+                            장학생                   문4) 평균 95이상 장학생
+                    ----------------------------
+            */
+
+            //문1) 학점구하기
+            let grade="";
+            switch(parseInt(aver/10)){
+                case 10:
+                case  9: grade="A학점"; break;
+                case  8: grade="B학점"; break;
+                case  7: grade="C학점"; break;
+                case  6: grade="D학점"; break;
+                default: grade="F학점"; break;
+            }//switch
+
+
+            //문2) 과락
+            let pass="";
+            if(aver>=70){
+                if(kor<40 || eng<40 || mat<40){
+                    pass="재시험";
+                }else{
+                    pass="합격";
+                }
+            }else{
+                pass="탈락";
+            }//if end
+
+
+            //문3) 평균 10점당 * 한개씩
+            let star="";
+            for(let n=0; n<parseInt(aver/10); n++){
+                star=star+"*";
+            }//for end
+
+
+            //문4)장학생
+            let special = "&nbsp;";
+            if(aver>=95) {
+                special = "<span style='color:red; font-weight:bold'>장학생</span>";
+            }//if end
+
+
+            //출력
+            let result="";
+            result += "<table border='1'>";
+            result += "<tr>";
+            result += "    <th>이름</th>";
+            result += "    <td>" + name + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th>국어</th>";
+            result += "    <td>" + kor + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th>영어</th>";
+            result += "    <td>" + eng + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th>수학</th>";
+            result += "    <td>" + mat + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th>총점</th>";
+            result += "    <td>" + total + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th>평균</th>";
+            result += "    <td>" + aver + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <th rowspan='4'>결과</th>";
+            result += "    <td>" + grade + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <td>" + pass + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <td>" + star + "</td>";
+            result += "</tr>";
+            result += "<tr>";
+            result += "    <td>" + special + "</td>";
+            result += "</tr>";
+            result += "</table>";
+
+            document.getElementById("demo").innerHTML=result;
+
+        </script>
+        
+    </body>                      
+</html>                          

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>14_offset.html</title>
+        <script src="jquery-3.6.1.min.js"></script>
+        <style>
+            #box {
+                width:600px;
+                height:400px;
+                position: fixed;
+                left:50%;
+                top:50%;
+                margin:-200px 0 0 -300px;
+                background:#888;
+            }
+
+            #child {
+                width:200px;ㅇ
+                height:200px;
+                position: relative;
+                left:200px;
+                top:100px;
+                background: #00bfff;
+                cursor: pointer;
+                box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            }
+        </style>
+    </head>  
+    <body>
+
+        <h3>offset과 position</h3>
+
+        <div id="box">
+            <div id="child"></div>
+        </div>
+        
+        <script>
+            /*
+                - 특정요소의 위치값을 얻는 방법
+                  1) 브라우저(크롬) 기준 : offset()
+                  2) 포지셔닝 컨텍스트(<body>기준) : position()
+                - 리턴 자료형 : 객체 (left, top 속성)
+            */
+        
+            $("#child").click(function(){
+                //alert("test");
+                let offset = $("#child").offset();
+                let position = $("#child").position();
+                // alert(offset);
+                // alert(position);
+
+                let msg = "";
+                msg += "offset left : " + offset.left + "<br>";
+                msg += "offset top : " + offset.top + "<br>";
+                msg += "position left : " + position.left + "<br>";
+                msg += "position top : " + position.top + "<br>";
+
+                $("#child").html(msg);
+
+            }); //click end
+
+        </script>
+        
+    </body>
+</html>

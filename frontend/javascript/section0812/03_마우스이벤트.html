@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">                 
+        <title>03_마우스이벤트.html</title> 
+    </head>
+    <body>   
+            
+        <h3>마우스 이벤트 </h3>
+
+        <table border="1">
+        <tr>
+            <th onmouseover="show('m')">무지</th>
+            <th onmouseover="show('a')">어피치</th>
+            <th onmouseover="show('r')">라이언</th>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="muzi" style="display:block">
+                    <img src="../../images/k6.png">
+                </div>
+                <div id="apeach" style="display:none">
+                    <img src="../../images/k2.png">
+                </div>
+                <div id="ryan" style="display:none">
+                    <img src="../../images/k7.png">
+                </div>
+            </td>
+        </tr>
+        </table>
+
+
+        <script>
+            function show(kind){
+                //alert(kind);
+                switch(kind){
+                    case "m": document.getElementById("muzi").style.display="block";
+                              document.getElementById("apeach").style.display="none";
+                              document.getElementById("ryan").style.display="none";
+                              break;
+                    case "a": document.getElementById("muzi").style.display="none";
+                              document.getElementById("apeach").style.display="block";
+                              document.getElementById("ryan").style.display="none";
+                              break;
+                    case "r": document.getElementById("muzi").style.display="none";
+                              document.getElementById("apeach").style.display="none";
+                              document.getElementById("ryan").style.display="block";
+                              break;          
+                }
+            }//show() end
+        </script>
+        
+    </body>                      
+</html>                          

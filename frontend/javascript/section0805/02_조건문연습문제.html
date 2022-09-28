@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <meta charset="UTF-8">                     
+        <title>02_조건문연습문제.html</title> 
+    </head>
+    <body>                       
+        
+        <h3>조건문 연습문제</h3>
+
+        <script>
+            //문1)평균점수에 따라서 A, B, C, D, F학점을 출력하시오(switch문 활용)
+            let kor=10, eng=10, mat=10;
+            let aver=parseInt((kor+eng+mat)/3)
+
+            switch(parseInt(aver/10)){
+                case 10 : 
+                case  9 : document.write("A"); break;
+                case  8 : document.write("B"); break;
+                case  7 : document.write("C"); break;
+                case  6 : document.write("D"); break;
+                default : document.write("F"); break;
+            }//switch end
+
+            document.write("<hr>");
+
+            //문2)연산기호(op)에 따라 결과값을 출력하시오
+            let i=3, j=5;
+            let op="/"; //+ - * /
+            /*
+                출력결과
+                3+5=8
+                3-5=-2
+                3*5=15
+                3/5=0.6
+            */
+            let result=0;
+            switch(op){
+                case "+" : result=i+j; break;
+                case "-" : result=i-j; break;
+                case "*" : result=i*j; break;
+                case "/" : result=i/j; break;
+            }//switch end
+
+            document.write(i + op + j + "=" + result);            
+            document.write("<hr>");
+
+
+            
+            //문3)주민번호를 이용해서 나이와 성별을 출력하시오
+            //예) 주민번호 "1912304234567"
+            //-> 나이 : 올해년도 - 태어난 년도
+            //-> 성별 : 1또는3 남자, 2또는4 여자
+
+            let myYear=parseInt("19"); //태어난 년도
+            let myCode=parseInt("1");  //성별코드
+            
+            //태어난 년도 완성하기
+            switch(myCode){
+                case 1:
+                case 2: myYear=myYear+1900; break;
+                case 3:
+                case 4: myYear=myYear+2000; break;
+            }//switch end
+            
+            //나이 구하기
+            myAge=2022-myYear;
+            document.write("나이 : " + myAge + "<hr>")
+
+            //성별 구하기
+            switch(myCode%2){
+                case 0 : document.write("성별 : 여자<hr>"); break;
+                case 1 : document.write("성별 : 남자<hr>"); break;
+            }//switch end 
+
+            if(myCode==1 || myCode==3){
+                document.write("성별 : 남자<hr>");
+            }else if(myCode==2 || myCode==4){
+                document.write("성별 : 여자<hr>");
+            }//if end
+
+
+
+
+
+
+
+
+        </script>
+        
+    </body>                      
+</html>                          

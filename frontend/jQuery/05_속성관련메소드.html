@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>05_속성관련메소드.html</title>
+        <!-- jQuery import  -->
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <h3>속성관련메소드</h3>
+        <p>
+            <button>title얻기</button>
+            <button>src변경</button>
+            <button>여러개의 속성을 변경</button>
+        </p>
+        <img src="../images/k2.png" alt="어피치" title="apeach"/>
+        <!-- 
+            <img>           : 요소, element
+            src, alt, title : 속성, property, attribute
+         -->
+
+        <script>
+            //text(), html(). css()
+            //prop(), attr() 요소의 속성 접근 함수
+            //ajax() 웹서버와 문자단위 통신할때(비동기식) 사용하는 함수
+
+            $("button:eq(0)").click(function(){
+                //alert();
+                //<img>요소의 title속성값 가져오기 (getter 개념)
+                let title=$("img").attr("title");
+                alert(title);
+            });// click end
+
+            $("button:eq(1)").click(function(){
+                //setter개념
+                $("img").attr("src", "../images/k6.png");
+                alert(src);
+            });// click end
+
+            $("button:eq(2)").click(function(){
+                let obj={
+                            "width"   : 400
+                            ,"height" : 300
+                            ,"src":"../images/k5.png"
+                            ,"alt":"콘"
+                            ,"title":"CON"
+                };
+
+                $("img").attr(obj);
+            });// click end
+
+        </script>
+        
+    </body>                      
+</html>                          

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>                       
+        <title>14_layout.html</title> 
+        <link rel="stylesheet" href="reset.css">
+        <style>
+            /* 1) 
+            .container{
+                border: 2px solid blue;
+                width: 900px; 전체 레이아웃 크기는 변하지 않게
+                margin: auto; 가운데 정렬
+            }
+            */
+             /* 4)  
+            .container{
+                border: 2px solid blue;
+                width: 912px; 각 .inner section style에서 2+300+2 (왼쪽선 굵기+가로크기+오른쪽선 굵기)*3개
+                margin: auto;
+            }
+            */
+
+            /* 5)완성코드*/
+            .container{
+                border: 2px solid blue;
+                width: 900px;
+                margin: auto;
+            }
+
+            /* 2) */
+            header{
+                border: 2px solid red;
+                height: 150px;
+                width: 100%;
+                line-height: 150px;
+                text-align: center;
+            }
+            /* 3) 
+            .inner Section{
+                border: 2px solid green;
+                width: 300px;
+                height: 300px;
+                float: left;
+            }*/
+            
+            /* 6) */
+            .inner section{
+                border: 2px solid green;
+                width: 300px;
+                height: 300px;
+                float: left;
+                padding: 20px;
+                box-sizing: border-box; /*선굵기, 여백등으로 늘어난 부분은 container의 width=900px내에서 해결함*/
+            }
+
+            /* 7) 
+            footer { border: 5px solid  orange; height: 100px;}
+            */
+
+            /* float속성은 전 요소 특성을 상속받는 특징이 있음 이미 float:left가 있는 상태임 */
+            /* 8) 
+            footer { border: 5px solid orange; height: 100px; float: left;}
+            */
+
+            /* 9)clear : float속성 해제 6)에서 상속받은 float:left 속성을 지워야 함 
+            footer { border: 5px solid  orange; height: 100px; clear: left; --clear:right}
+            */
+
+            /* 10)완성코드 */
+            footer { border: 5px solid orange; height: 100px; clear: both;}/* left,right 모두 해제*/
+
+        </style>
+    </head>
+    <body>                       
+        <!-- 전체 레이아웃 구성하기 -->
+
+        <div class="container">
+            <header>Header</header>
+            <div class="inner">
+                <section>Section 1</section>
+                <section>Section 2</section>
+                <section>Section 3</section>
+            </div>
+            <footer>Footer</footer>
+        </div>
+
+        
+    </body>            
+</html>                          
