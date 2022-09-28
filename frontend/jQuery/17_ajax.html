@@ -14,19 +14,19 @@
         
         <script>
             $("button").click(function(){
-                $.ajax("actors.json", {
+                $.ajax("actos.json", {
                     dataType:"json"
                     ,error:function(xhr, status, error){
                         alert("ERROR!!");
-                        alert(xhr);
-                        alert(status);
-                        alert(error);
+                        alert(xhr);     //XHLHttpRequest 객체
+                        alert(status);  //응답상황
+                        alert(error);   //Not Found
                     }
                     ,success:function(result, status, xhr){
                         alert("SUCCESS~~");
-                        alert(result);
-                        alert(status);
-                        alert(xhr);
+                        alert(result);  //서버가 응답해준 객체형태의 메세지
+                        alert(status);  //응답상황
+                        alert(xhr);     //XHLHttpRequest 객체
                     }
                 })//ajax() end
             });//click end
