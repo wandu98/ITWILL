@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+<head>                       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>06_input.html</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>          
+    <h2>Form control: input</h2>
+    <form>
+      <div class="form-group">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+    </form>
+
+    <h2>Form control: textarea</h2>
+    <form>
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+      </div>
+    </form>
+
+    <h2>Form control: inline checkbox</h2>
+    <form>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 1
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 2
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+      </label>
+    </form>
+
+    <h2>Form control: inline radio buttons</h2>
+    <form>
+        <label class="radio-inline">
+        <input type="radio" name="optradio" checked>Option 1
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="optradio">Option 2
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="optradio">Option 3
+        </label>
+    </form>
+
+    <form>
+        <div class="form-group">
+          <label for="sel1">Select list (select one):</label>
+          <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+    </form>
+</body>                      
+</html>                          

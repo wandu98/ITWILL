@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>06_callback함수.html</title>
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <button>* JSON 데이터 받아오기 *</button>
+        <div id="panel"></div>
+        
+        <script>
+           $("button").click(function(){
+            //$.getJSON(url, callback함수) JSON 데이터를 가져온다
+            $.getJSON("sungjuks.json", responseProc);
+           });//click end
+
+           function responseProc(result, status, xhr){  //callback 함수
+            //alert(result);
+            //alert(status);
+            //alert(xhr);
+            let str="<table border='1'>";
+            $.each(result, function(idx, data){
+                    //alert(idx);  //요소 순서 
+                    //alert(data); //각 배열 요소값
+                    str += "<tr>";
+                    str += " <td>" + data.name + "</td>";
+                    str += " <td>" + data.id + "</td>";
+                    str += " <td>" + data.kor + "</td>";
+                    str += " <td>" + data.eng + "</td>";
+                    str += " <td>" + data.mat + "</td>";    
+                    str += " </tr>";
+                });//each() end
+                str+="</table>";
+                $("#panel").empty();
+                $("#panel").append(str);
+           }//responseProc() end
+        </script>
+        
+    </body>                      
+</html>                          

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>04_json데이터가져오기.html</title>
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        <button>* JSON 데이터 받아오기 *</button>
+        <div id="panel"></div>
+        
+        <script>
+            $("button").click(function(){
+                $.ajax("sungjuk.json", {dataType:"json",
+                                        error:function(error){
+                                            alert("ERROR!!" + error);
+                                        }//error end
+                                        ,success:function(result){
+                                            //alert("SUCCESS!!");
+                                            //alert(result);  //서버가 응답해준 객체형태의 데이터
+                                            //alert(result.length);
+                                            let size=result.length;
+                                            let str="<table border='1'>";
+                                            for(i=0; i<size; i++){
+                                                str += "<tr>";
+                                                str += " <td>" + result[i].name + "</td>";
+                                                str += " <td>" + result[i].id + "</td>";
+                                                str += " <td>" + result[i].kor + "</td>";
+                                                str += " <td>" + result[i].eng + "</td>";
+                                                str += " <td>" + result[i].mat + "</td>";    
+                                                str += " </tr>";
+                                            }//for end
+                                            str +="</table>";
+                                            //$("#panel").html(str);
+                                            //$("#panel").text(str);
+                                            $("#panel").append(str);
+                                        }//success end
+                });//ajax end
+            });//click end
+        </script>
+        
+    </body>                      
+</html>                          

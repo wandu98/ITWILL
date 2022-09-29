@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">                 
+    <head>      
+        <meta charset="UTF-8">             
+        <title>03_ajax문법.html</title>
+        <script src="jquery-3.6.1.min.js"></script> 
+    </head>
+    <body>                       
+
+        참조
+        https://www.w3schools.com/js/js_ajax_intro.asp
+        https://www.w3schools.com/jquery/jquery_ajax_intro.asp
+
+        ● AJAX = Asynchronous JavaScript and XML.
+          - 페이지 전체를 로딩하지 않고
+            서버에 있는 데이터를 가져와서 페이지 일부분만 바꿀수 있다
+          - 문자단위로 통신(비동기 방식) 
+          - 한개의 페이지에서 요청과 응답이 동시에 이루어짐
+
+          1) JavaScript : XMLHttpRequest 객체
+          2) jquery     : $.ajax() 함수
+
+          ● 형식) $.ajax({요청명령}, callback함수)
+            - callback함수 : 서버로부터 응답받은 후 호출되는 함수
+            - 요청명령의 세부사항 : url, method, dateType, data, success, error 등
+        
+
+          ● 요청명령 세부사항
+            1) dataType : text, json, xml등
+            2) type : GET, POST, PUT, DELETE
+            3) data : 서버에 요청할 데이터
+            4) error : 에러시 호출되는 함수
+            5) success : 성공시 호출되는 함수 (callback함수)
+
+        <script>
+
+
+        </script>
+        
+    </body>                      
+</html>                          
