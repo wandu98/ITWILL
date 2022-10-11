@@ -34,7 +34,7 @@
         <li><a href="../bbs/bbsList.jsp">게시판</a></li>
         <li><a href="../notice/noticeList.jsp">공지사항</a></li>
         <li><a href="../member/memberList.jsp">로그인</a></li>
-        <li><a href="../pds/pdsList.jsp">포토갤러</a></li>
+        <li><a href="../pds/pdsList.jsp">포토갤러리</a></li>
         <li><a href="../mail/mailForm.jsp">메일보내기</a></li>
       </ul>
     </div>

@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <!-- ssi.jsp 공통코드  -->
-    
-<%@ page import="java.sql.* "%>
-<%@ page import="java.io.* "%>
-<%@ page import="java.util.* "%>
+<%-- ssi.jsp 공통코드--%>
 
-<%@ page import="net.utility.* "%>
-<%@ page import="net.bbs.* "%>
- <%@ include file="../header.jsp" %>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.util.*"%>
 
-<jsp:useBean id="dao" class="net.bbs.BbsDAO"
-<jsp:useBean id="dto" class="net.bbs.BbsDTO"
+<%@ page import="net.utility.*"%>
+<%@ page import="net.bbs.*"%>
 
- <%request.setCharacterEncoding("UTF-8");%>
+<jsp:useBean id="dao" class="net.bbs.BbsDAO" scope="page"></jsp:useBean>    
+<jsp:useBean id="dto" class="net.bbs.BbsDTO" scope="page"></jsp:useBean>
+
+<%request.setCharacterEncoding("UTF-8");%>
