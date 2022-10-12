@@ -13,8 +13,9 @@
  
  <!-- 사용자 정의 스타일과 자바스크립트 -->
  <!-- 주의사항 : CSS와 JS는 각 웹브라우저에서 쿠키삭제하고 확인할것 -->
- <!-- layout.css improt -->
+ <!-- layout.css import -->
  <link rel="stylesheet" href="./css/layout.css">
+ <script src="./js/myscript.js"></script>
 </head>
 <body>
 

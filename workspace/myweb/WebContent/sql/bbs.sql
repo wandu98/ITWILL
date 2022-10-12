@@ -51,3 +51,27 @@ select nvl(max(bbsno),0) from tb_bbs;
 --행추가
 insert into tb_bbs(bbsno, wname, subject, content, passwd, ip, grpno)
 values(bbs_seq.nextval, ?,?,?,?,?, (select nvl(max(bbsno),0+1 from tb_)));
+
+
+--전체목록
+select bbsno, wname, subject, readcnt, regdt
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+
+--상세보기
+select * from tb_bbs where bbsno=?
+
+--행삭제
+delete from tb_bbs where bbsno=? and passwd=?
+
+--행수정
+update tb_bbs set wname=?, subject=?, content=?, ip=?
+where bbsno=? and passwd=?
+
+--조회수 수정
+update tb_bbs set readcnt=readcnt+1
+where bbsno=? and passwd=?
+////////////////////////////////////////////////////////////////////////////////
+
+

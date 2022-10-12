@@ -7,7 +7,7 @@
  	
  	
  	<div class="container">
-	<form name="bbsfrm" id="bbsfrm" method="post" action="bbsIns.jsp">
+	<form name="bbsfrm" id="bbsfrm" method="post" action="bbsIns.jsp" onsubmit="return bbsCheck()"> <!-- myscript.js에 함수 작성함  -->
 	<table class="table">
 	<tr>
 	   <th class="success">작성자</th>
