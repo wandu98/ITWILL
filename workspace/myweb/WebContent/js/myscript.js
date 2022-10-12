@@ -41,3 +41,27 @@ function bbsCheck(){ //게시판 유효성 검사
 
 	return true; //onsubmit이벤트에서 서버로 전송
 }//bbsCheck() end
+
+
+function pwCheck(){
+	
+	let passwd=document.getElementById("passwd").value;
+    passwd=passwd.trim();
+    if(passwd.length<4 || isNaN(passwd)){
+        alert("비밀번호가 4글자 이상 숫자로 입력하세요");
+        document.getElementById("passwd").focus();
+        return false;
+    }//if end
+
+    let message="경고\n진행된 내용은 복구되지 않습니다\n계속 진행할까요?";
+    if(confirm(message)){//확인true, 취소false
+    	return true;	//서버로 전송
+    }else{
+    	return false;
+    }//if end
+}//pwCheck() end
+
+
+function bbsCheck(){
+	
+}//bbsCheck() end

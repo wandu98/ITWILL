@@ -15,7 +15,7 @@
 	<table class="table">
 	<thead>
 		<tr>
-			<th class="success" >제목</th>
+			<th class="success">제목</th>
 			<th class="success">조회수</th>
 			<th class="success">작성자</th>
 			<th class="success">작성일</th>
@@ -39,7 +39,7 @@
 %>
 			<tr>
 				<td style="text-align: left">
-					<%=dto.getSubject()%>
+					<a href="bbsRead.jsp?bbsno=<%=dto.getBbsno()%>"><%=dto.getSubject()%></a>
 <%
 				//오늘 작성한 글제목 뒤에 new 이미지 출력
 				//작성일(regdt)에서 "년월일"만 자르기

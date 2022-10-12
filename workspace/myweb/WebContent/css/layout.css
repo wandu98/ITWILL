@@ -16,7 +16,7 @@ p {
 }
 
 .bg-1 {
-	background-color: #ffffff; /* White */
+	background-color: #ffc8ff; 
 	color: #ffffff;
 }
 
@@ -38,6 +38,7 @@ p {
 .container-fluid {
 	padding-top: 30px;
 	padding-bottom: 30px;
+	
 }
 
 .navbar {

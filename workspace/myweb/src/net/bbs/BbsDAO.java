@@ -106,9 +106,84 @@ public class BbsDAO { //데이터베이스 관련 작업
     }//count() end
     
     
+    public BbsDTO read(int bbsno) {
+    	BbsDTO dto=null;
+    	try {
+    		con=dbopen.getConnection();
+    		
+    		sql=new StringBuilder();
+    		sql.append(" SELECT bbsno, wname, subject, content, readcnt, regdt, ip, grpno, indent, ansnum ");
+    		sql.append(" FROM tb_bbs ");
+    		sql.append(" WHERE bbsno=? ");
+    		
+    		pstmt=con.prepareStatement(sql.toString());
+    		pstmt.setInt(1,  bbsno);
+    		
+    		rs=pstmt.executeQuery();
+    		if(rs.next()) {
+    			dto=new BbsDTO();
+    			dto.setBbsno(rs.getInt("bbsno"));
+				dto.setWname(rs.getString("wname"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setReadcnt(rs.getInt("readcnt"));
+				dto.setRegdt(rs.getString("regdt"));
+				dto.setIp(rs.getString("ip"));
+				dto.setGrpno(rs.getInt("grpno"));
+				dto.setIndent(rs.getInt("indent"));
+				dto.setAnsnum(rs.getInt("ansnum"));
+    		}//end
+		}catch (Exception e) {
+    		System.out.println("상세보기 실패:" + e);
+    	}finally {
+    		DBClose.close(con, pstmt, rs);
+    	}//end
+    	return dto;
+    }//read() end
+    
+    
+    public void incrementCnt(int bbsno) {
+    	try {
+    		con=dbopen.getConnection();
+    		
+    		sql=new StringBuilder();
+    		sql.append(" UPDATE tb_bbs ");
+    		sql.append(" SET readcnt=readcnt+1 ");
+    		sql.append(" WHERE bbsno=? ");
+    		
+    		pstmt=con.prepareStatement(sql.toString());
+    		pstmt.setInt(1,  bbsno);
+    		pstmt.executeUpdate();
+    		
+    	}catch (Exception e) {
+    		System.out.println("조회수 증가 실패: "+e );
+    	}finally {
+    		DBClose.close(con,pstmt);
+    	}//end
+    }//incrementCnt() end
+    
    
-   
-  
+    public int delete(BbsDTO dto) {
+    	int cnt=0;
+    	try {
+    		con=dbopen.getConnection();
+    		
+    		sql=new StringBuilder();
+    		sql.append(" DELETE FROM tb_bbs ");
+    		sql.append(" WHERE bbsno=? AND passwd=? ");
+    		
+    		pstmt=con.prepareStatement(sql.toString());
+    		pstmt.setInt(1, dto.getBbsno());
+    		pstmt.setString(2,  dto.getPasswd());
+    		cnt=pstmt.executeUpdate();
+    		
+    	}catch (Exception e) {
+    		System.out.println("삭제 실패: "+e );
+    	}finally {
+    		DBClose.close(con, pstmt);
+    	}//end
+    	return cnt;
+    }//delete end
 
   
   
