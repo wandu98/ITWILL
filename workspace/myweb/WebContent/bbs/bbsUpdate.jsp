@@ -20,6 +20,7 @@
 	}else{
 %>
 	<form name="bbsfrm" id="bbsfrm" method="post" action="bbsUpdateProc.jsp" onsubmit="return bbsCheck()">
+	<input type="hidden" name="bbsno" value="<%=bbsno%>">
 	<table class="table">
 	<tr>
 	   <th class="success">작성자</th>

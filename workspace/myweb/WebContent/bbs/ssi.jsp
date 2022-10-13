@@ -14,3 +14,11 @@
 <jsp:useBean id="dto" class="net.bbs.BbsDTO" scope="page"></jsp:useBean>
 
 <%request.setCharacterEncoding("UTF-8");%>
+
+<%
+	//검색	
+	String word=request.getParameter("word");	//검색어
+	String col =request.getParameter("col");	//검색칼럼
+	word=Utility.checkNull(word);	//문자열값이 null이면 빈문자열로 치환
+	col =Utility.checkNull(col);
+%>

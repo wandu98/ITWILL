@@ -185,8 +185,109 @@ public class BbsDAO { //데이터베이스 관련 작업
     	return cnt;
     }//delete end
 
+  public int updateproc(BbsDTO dto) {
+	  int cnt=0;
+	  try {
+		  con=dbopen.getConnection();
+		  
+		  sql=new StringBuilder();
+		  sql.append(" UPDATE tb_bbs ");
+		  sql.append(" SET wname=? ");
+		  sql.append(" , subject=? ");
+		  sql.append(" , content=? ");
+		  sql.append(" , ip=? ");
+		  sql.append(" WHERE bbsno=? AND passwd=? ");
+		  
+		 pstmt=con.prepareStatement(sql.toString());
+  		 pstmt.setString(1, dto.getWname());
+  		 pstmt.setString(2, dto.getSubject());
+  		 pstmt.setString(3, dto.getContent());
+  		 pstmt.setString(4, dto.getIp());
+  		 pstmt.setInt(5, dto.getBbsno());
+  		 pstmt.setString(6, dto.getPasswd());
+  		 
+  		 cnt=pstmt.executeUpdate();
+  		 
+	  }catch (Exception e) {
+  		System.out.println("수정 실패: "+e );
+  	}finally {
+  		DBClose.close(con, pstmt);
+  	}//end
+  	return cnt;
+  }//updateproc() end
   
   
-    
-    
-}//class end
+  public int reply(BbsDTO dto) {
+	  int cnt=0;
+	  try {
+		  con=dbopen.getConnection();
+		  sql=new StringBuilder();
+		  
+		  //1)부모글 정보 가져오기(select문)
+		  int grpno=0;
+		  int indent=0;
+		  int ansnum=0;
+		  sql.append(" SELECT grpno, indent, ansnum ");
+		  sql.append(" FROM tb_bbs ");
+		  sql.append(" WHERE bbsno=? ");
+		  pstmt=con.prepareStatement(sql.toString());
+		  pstmt.setInt(1,  dto.getBbsno());
+		  rs=pstmt.executeQuery();
+		  if(rs.next()) {
+			  
+		  }//if end
+		  
+		  //2)글순서 재조정하기(update문)
+		  
+		  //3)답변글 추가하기(insert문)
+		  sql.delete(0, sql.length());																																																																																																																																								
+	  }catch (Exception e) {
+		  System.out.println("답변쓰기 실패:" + e);
+	  }finally {
+		  DBClose.close(con, pstmt, rs);
+	  }//end
+  	  return cnt;
+  }//reply() end
+  
+  public int count2(String col, String word) {
+	  int cnt=0;
+	  try {
+		  con=dbopen.getConnection();
+		  
+		  sql=new StringBuilder();
+		  sql.append(" SELECT COUNT(*) as cnt ");
+		  sql.append(" FROM tb_bbs ");
+		  
+		  if(word.length()>=1) { //검색어가 존재한다면
+			  String search="";
+			  if(col.equals("subject_content")) {
+				  search += "WHERE subject LIKE '%" + word + "%'";
+				  search += "OR    content LIKE '%" + word + "%'";
+			  }else if(col.equals("subject")) {
+				  search += "WHERE subject LIKE '%" + word + "%'";
+			  }else if(col.equals("content")) {
+				  search += "WHERE content LIKE '%" + word + "%'";
+			  }else if(col.equals("wname")) {
+				  search += "WHERE wname LIKE '%" + word + "%'";
+			  }//if end
+			  sql.append(search);
+		  }//if end
+		  
+		  pstmt=con.prepareStatement(sql.toString());
+		  rs=pstmt.executeQuery();
+		  if(rs.next()) {
+			  cnt=rs.getInt("cnt");
+		  }//if end
+		  
+	  }catch (Exception e) {
+		  System.out.println("검색 글 갯수 실패:" +e);
+	  }finally {
+		  DBClose.close(con, pstmt, rs);
+	  }//end
+	  return cnt;
+  }//count2() end
+  
+  
+  
+  
+}//BbsDAO() end
