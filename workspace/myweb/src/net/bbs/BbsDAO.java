@@ -224,30 +224,58 @@ public class BbsDAO { //데이터베이스 관련 작업
 		  sql=new StringBuilder();
 		  
 		  //1)부모글 정보 가져오기(select문)
-		  int grpno=0;
-		  int indent=0;
-		  int ansnum=0;
-		  sql.append(" SELECT grpno, indent, ansnum ");
-		  sql.append(" FROM tb_bbs ");
-		  sql.append(" WHERE bbsno=? ");
-		  pstmt=con.prepareStatement(sql.toString());
-		  pstmt.setInt(1,  dto.getBbsno());
-		  rs=pstmt.executeQuery();
-		  if(rs.next()) {
-			  
-		  }//if end
+	        int grpno=0;//부모글 그룹번호
+	        int indent=0;//부모글 들여쓰기
+	        int ansnum=0;//부모글 글순서
+	        sql.append(" SELECT grpno, indent, ansnum ");
+	        sql.append(" FROM tb_bbs ");
+	        sql.append(" WHERE bbsno=? ");
+	        pstmt = con.prepareStatement(sql.toString());
+	        pstmt.setInt(1, dto.getBbsno());
+	        rs = pstmt.executeQuery();
+	        if(rs.next()) {
+            //그룹번호 : 부모글 그룹번호 그대로 가져오기
+            grpno = rs.getInt("grpno");
+            //들여쓰기 : 부모글 들여쓰기 + 1
+            indent = rs.getInt("indent")+1;
+            //글순서 : 부모글 글순서 + 1
+            ansnum = rs.getInt("ansnum")+1;
+	        }//if end
 		  
-		  //2)글순서 재조정하기(update문)
+	      //2)글순서 재조정하기(update문)
+	        sql.delete(0, sql.length()); //1단계에서 사용했던 sql값 지우기
+	        sql.append(" UPDATE tb_bbs ");
+	        sql.append(" SET ansnum=ansnum+1 ");
+	        sql.append(" WHERE grpno=? AND ansnum>=? ");
+	        pstmt = con.prepareStatement(sql.toString());
+	        pstmt.setInt(1, grpno);
+	        pstmt.setInt(2, ansnum);
+	        pstmt.executeUpdate();
 		  
-		  //3)답변글 추가하기(insert문)
-		  sql.delete(0, sql.length());																																																																																																																																								
-	  }catch (Exception e) {
-		  System.out.println("답변쓰기 실패:" + e);
-	  }finally {
-		  DBClose.close(con, pstmt, rs);
-	  }//end
-  	  return cnt;
-  }//reply() end
+	      //3)답변글 추가하기(insert문)
+	        sql.delete(0, sql.length());
+	        sql.append(" INSERT INTO tb_bbs(bbsno, wname, subject, content, passwd, ip, grpno, indent, ansnum) ");
+	        sql.append(" VALUES(bbs_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?) ");
+
+	        pstmt = con.prepareStatement(sql.toString());
+	        pstmt.setString(1, dto.getWname());
+	        pstmt.setString(2, dto.getSubject());
+	        pstmt.setString(3, dto.getContent());
+	        pstmt.setString(4, dto.getPasswd());
+	        pstmt.setString(5, dto.getIp());
+	        pstmt.setInt(6, grpno); //1단계에서 만든 그룹번호
+	        pstmt.setInt(7, indent);//1단계에서 만든 들여쓰기
+	        pstmt.setInt(8, ansnum);//1단계에서 만든 글순서
+
+	        cnt = pstmt.executeUpdate();
+
+	    } catch (Exception e) {
+	        System.out.println("답변쓰기 실패:" + e);
+	    } finally {
+	        DBClose.close(con, pstmt, rs);
+	    }
+	    return cnt;
+	}//reply() end
   
   public int count2(String col, String word) {
 	  int cnt=0;

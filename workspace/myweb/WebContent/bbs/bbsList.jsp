@@ -41,7 +41,7 @@
 				<td style="text-align: left">
 <%
 					//답변이미지 출력
-					for(int n=1; n<dto.getIndent(); n++){
+					for(int n=1; n<=dto.getIndent(); n++){
 						out.println("<img src='../images/reply.gif'>");
 					}//for end
 %>		
