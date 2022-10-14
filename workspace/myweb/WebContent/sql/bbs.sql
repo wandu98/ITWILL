@@ -117,3 +117,84 @@ where content like '%파스타%'
 -- 작성자에서 '파스타'가 있는지 검색
 where wname like '%파스타%'
 
+//////////////////////////////////////////////////////////////////////
+-- 툴 이용해서 보는 사람은 안 해도 된다 
+
+--출력 줄 수
+set pagesize 100;
+--한 줄 출력 글자 개수
+set linesize 100;
+--칼럼길이 10칸 임시 조정
+col wname for a10;
+col subject for a10;
+
+select bbsno, subject, wname, readcnt, indent, regdt
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+[페이징]
+- rownum 줄 번호 활용
+
+1)
+select bbsno, subject, wname, readcnt, indent, regdt
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+
+2)rownum추가
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+from tb_bbs
+order by grpno desc, ansnum asc;
+
+3) 1의 SQL문을 셀프조인하고, rownum 추가
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+from (
+	  select bbsno, subject, wname, readcnt, indent, regdt
+	  from tb_bbs
+	  order by grpno desc, ansnum asc
+	 );
+	 
+4) 줄 번호 1~5조회 (1페이지)
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+from (
+	  select bbsno, subject, wname, readcnt, indent, regdt
+	  from tb_bbs
+	  order by grpno desc, ansnum asc
+	 )
+ where rownum>=1 and rownum<=5;
+
+5) 줄 번호 6~10 조회(2페이지) -> 조회안됨 선택된 레코드가 없습니다 
+select bbsno, subject, wname, readcnt, indent, regdt, rownum
+from (
+	  select bbsno, subject, wname, readcnt, indent, regdt
+	  from tb_bbs
+	  order by grpno desc, ansnum asc
+	 )
+ where rownum>=6 and rownum<=10;
+
+ 6)줄 번호가 있는 3)의 테이블을 한 번더 셀프조인하고, rownum칼럼명을 r을 바꾼다
+select *
+from (
+		select bbsno, subject, wname, readcnt, indent, regdt, rownum as r
+		from (
+	  			select bbsno, subject, wname, readcnt, indent, regdt
+				from tb_bbs
+				order by grpno desc, ansnum asc
+	 )			
+)
+where r>=6 and r<=10;
+
+
+7) 페이징+검
+   예) 제목에서 '파스타'가 있는 행을 검색해서 2페이지(6행~10) 조회하시오
+select *
+from (
+		select bbsno, subject, wname, readcnt, indent, regdt, rownum as r
+		from (
+	  			select bbsno, subject, wname, readcnt, indent, regdt
+				from tb_bbs
+				where subject like '%파스타%'
+				order by grpno desc, ansnum asc
+	 )			
+)
+where r>=6 and r<=10;

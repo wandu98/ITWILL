@@ -11,23 +11,19 @@
  <!-- 본문시작 template.jsp -->
 <h3>* 글목록 *</h3>
 <p><a href="bbsForm.jsp">[글쓰기]</a></p>
-
 <div class="container">
-	<table class="table table-hover">
+	<table class="table">
 	<thead>
-		<tr class="success">
-			<th>제목</th>
-			<th>조회수</th>
-			<th>작성자</th>
-			<th>작성일</th>
+		<tr>
+			<th class="success">제목</th>
+			<th class="success">조회수</th>
+			<th class="success">작성자</th>
+			<th class="success">작성일</th>
 		</tr>
 	</thead>
 	<tbody>
 <%
-	//한 페이지당 출력할 행의 개수
-	int recordPerPage=5;
-
-	ArrayList<BbsDTO> list=dao.list3(col, word, nowPage, recordPerPage); 
+	ArrayList<BbsDTO> list=dao.list2(col, word);
 	if(list==null){
 		out.println("<tr>");
 		out.println("	<td cospan='4'>");
@@ -85,13 +81,6 @@
 		out.println("		글 개수:<string> " + totalRecord +" </strong>");
 		out.println("	</td>");
 		out.println("</tr>");
-		
-		//페이지 리스트
-		out.println("<tr>");
-		out.println("   <td colspan='4' style='text-align:centerl height: 50px'>");
-		
-		out.println("   </td>");
-		out.println("</tr>");
 %>
 		<!-- 검색시작  -->
 		<tr>
@@ -117,7 +106,7 @@
 </div>
 
  	
- 	 
+ 	
  	
  <!--  본문끝 -->
  <%@ include file="../footer.jsp" %>

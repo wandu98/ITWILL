@@ -35,8 +35,7 @@
 	}else{
         out.println("<script>");
         out.println("    alert('게시글이 수정 되었습니다');");
-        //http://localhost:8080/myweb/bbs/bbsList.jsp?col=subject_content&word=명원아
-        out.println("    location.href='bbsList.jsp?col=" +col + "&word=" + word + "';");//목록페이지 이동
+        out.println("    location.href='bbsList.jsp';");//목록페이지 이동
         out.println("</script>");
 	}//if end
 	
