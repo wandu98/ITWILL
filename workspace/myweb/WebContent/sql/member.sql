@@ -1,7 +1,7 @@
 -- member.sql
 
 
--- 회원등
+-- 회원등급
 A1: 관리자
 B1: 중간 관리자
 C1: 우수 사용자
@@ -29,13 +29,11 @@ CREATE TABLE member (
 commit;
 
 
-
-
---행추가
+-- 행추가
 insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate)
 values('webmaster', '12341234', '웹마스터', '123-4567', 'webmaster@itwill.com'
      , '12345', '서울시 강남구 역삼동', '삼원타워4층', 'A02', 'A1', sysdate );
-     
+
 insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate)
 values('itwill', '12341234', '웹마스터', '123-4567', 'itwill@itwill.com'
      , '12345', '서울시 강남구 역삼동', '삼원타워4층', 'A02', 'D1', sysdate );
@@ -43,11 +41,12 @@ values('itwill', '12341234', '웹마스터', '123-4567', 'itwill@itwill.com'
 insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate)
 values('user1', '12341234', '웹마스터', '123-4567', 'user1@soldesk.com'
      , '12345', '서울시 종로구 관철동', '코아빌딩8층', 'A02', 'F1', sysdate );
-     
 
- --로그인
- --아이디와 비번이 일치하면 회원등급 가져오기
- --단, 비회원과 탈퇴회원은 제외
+
+
+--로그인
+--아이디와 비번이 일치하면 회원등급 가져오기
+--단, 비회원과 탈퇴회원은 제외
 select mlevel
 from member
 where id='webmaster' and passwd='12341234' and mlevel in ('A1', 'B1', 'C1', 'D1');
@@ -59,4 +58,20 @@ where id='itwill' and passwd='12341234' and mlevel in ('A1', 'B1', 'C1', 'D1');
 select mlevel
 from member
 where id='user1' and passwd='12341234' and mlevel in ('A1', 'B1', 'C1', 'D1');
+
+
+-- 아이디 중복 확인
+select count(id)
+from member
+where id=?;
+
+
+-- 회원가입
+insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate)
+values(?,?,?,?,?,?,?,?,?,'D1', sysdate)
+
+
+
+
+
 

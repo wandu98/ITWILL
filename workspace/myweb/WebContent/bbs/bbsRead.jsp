@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="ssi.jsp" %>    
+<%@ include file="ssi.jsp" %> 
+<%@ include file="../member/auth.jsp" %>
 <%@ include file="../header.jsp" %>
-<!-- 본문시작 template.jsp -->
+<!-- 본문시작 bbsRead.jsp -->
 <h3>* 게시판 상세보기 *</h3>
 <p>
 	<a href="bbsForm.jsp">[글쓰기]</a>
@@ -54,10 +55,12 @@
 		<br>
 		<input type="button" value="답변쓰기" class="btn btn-info" 	onclick="location.href='bbsReply.jsp?bbsno=<%=bbsno%>'">
 		<input type="button" value="수정" 	class="btn btn-warning" onclick="location.href='bbsUpdate.jsp?bbsno=<%=bbsno%>&col=<%=col%>&word=<%=word%>'">
-		<input type="button" value="삭제" 	class="btn btn-danger"	onclick="location.href='bbsDel.jsp?bbsno=<%=bbsno%>'">
-<%
+<%      if(s_mlevel.equals("A1")){ %>
+			<input type="button" value="삭제" 	class="btn btn-danger"	onclick="location.href='bbsDel.jsp?bbsno=<%=bbsno%>'">
+<%      }//if end
 	}//if end
 %>
+
 </div>
 
    

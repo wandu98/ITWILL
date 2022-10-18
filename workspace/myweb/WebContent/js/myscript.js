@@ -74,5 +74,55 @@ function serachCheck(){
 }//serachCheck() end
 
 
+function loginCheck(){//로그인 유효성 검사 (아이디, 비번)	
+	//1)아이디 5~10글자 이내인지 검사
+	let id=document.getElementbyId("id".value);
+	id=id.trim();
+	if(!(id.length>=5 && id.length<=10)){
+		alert("아이디 5~10글자이내 입력해 주세요");
+		document.getElementById("id").focus();
+		return false;
+	}//if end
 	
+	//2)비밀번호 5~10글자 이내인지 검사
+	let passwd=document.getElementById("passwd").value;
+	passwd=passwd.trim();
+	if(!(passwd.length>=5 && passwd.length<=10)){
+		alert("비밀번호 5~10글자이내 입력해 주세요");
+		document.getElementById("passwd").focus();
+		return false;
+	}//if end
+	
+	return true;
+	
+}//loginCheck() end
 
+function idCheck() { //아이디 중복확인
+	
+	//모달창
+	//->부모창과 자식창이 한몸으로 구성되어 있음
+	
+	//새창만들기
+	//->부모창과 자식창이 별개로 구성되어 있음
+	//->모바일에 기반을 둔 frontend단에서는 사용하면 안 됨
+	//window.open("파일명", "새창이름", "다양한옵션들")
+	window.open("idCheckForm.jsp", "idwin", "width=400, height=350");
+	
+}//idCheck() end
+
+
+function memberCheck(){ //회원가입 유효성 검사
+	//1)아이디 5~10글자 인지?
+	
+	//2)비밀번호 5~10글자 인지?
+	
+	//3)비밀번호와 비밀번호확인이 서로 일치하는지?
+	
+	//4)이름 2글자 이상인지?
+	
+	//5)이메일 5글자인지?
+	
+	//6)직업을 선택했는지?
+	
+}//memberCheck() end
+ 
