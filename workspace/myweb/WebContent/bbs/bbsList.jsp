@@ -65,9 +65,9 @@
 					}//if end 
 %>					
 				</td>
-				<td><%=dto.getReadcnt()%></td>
-				<td><%=dto.getWname()%></td>
-				<td><%=dto.getRegdt().substring(0, 10)%></td>
+				<td style="text-align: left"><%=dto.getReadcnt()%></td>
+				<td style="text-align: left"><%=dto.getWname()%></td>
+				<td style="text-align: left"><%=dto.getRegdt().substring(0, 10)%></td>
 			</tr>
 <%		    
 		}//for end

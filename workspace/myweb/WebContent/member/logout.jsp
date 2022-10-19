@@ -7,7 +7,7 @@
 	session.removeAttribute("s_id");
 	session.removeAttribute("s_passwd");
 	session.removeAttribute("s_mlevel");
-	
+
 	//페이지 이동
 	response.sendRedirect("loginForm.jsp");
 %>
