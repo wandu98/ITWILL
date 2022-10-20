@@ -73,5 +73,25 @@ values(?,?,?,?,?,?,?,?,?,'D1', sysdate)
 
 
 
+-- 아이디/비번찾기 연습용 데이터 행추가 (확인 가능한 이메일 주소 정홗히 적어주세요)
+insert into member(id, passwd, mname, tel, email, zipcode, address1, address2, job, mlevel, mdate)
+values('genzi', '12341234', '겐지', '123-4567', 'rlawndhks914@naver.com'
+     , '12345', '경기도 평택시 칠괴동', '우림필유아파트', 'A02', 'D1', sysdate );
+     
+commit;
+
+
+-- 아이디/비번찾기
+
+1) 이름과 이메일 일치하면
+select id
+from memeber
+where mname=? and email=?
+
+2)임시 비밀번호를 발급해서 테이블 수정하기
+update member
+set passwd=?
+where mname=? and email=?
+
 
 

@@ -26,7 +26,7 @@
 		 
 		
 		//3)메일서버에서 인증받은 계정+비번 
-		Authenticator myAuth=new MyAuthenticator();		
+		Authenticator myAuth=new MyAuthenticator();		//다형성
 	
 		//4) 2)와 3)이 유효한지 검증
 	 	Session sess=Session.getInstance(props, myAuth);
@@ -91,7 +91,7 @@
 	 	//메일 전송 
 	 	Transport.send(msg);
 	 	
-	 	out.print(to+"님에세 메일이 발송되었습니다!!");
+	 	out.print(to+"님에게 메일이 발송되었습니다!!");
 	 	
  	}catch(Exception e){
  		out.println("<p>메일 전송 실패!!" + e + "</p>");
