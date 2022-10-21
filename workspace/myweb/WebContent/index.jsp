@@ -108,7 +108,7 @@
 
 <!-- First Container 시작-->
 <div class="container-fluid bg-1 text-center">
-  <img src="./images/digimon.jpeg" style="display:inline" alt="digimonlogo" width="25%">
+  <img src="./images/digimon.jpeg" style="display:inline" alt="digimonlogo" width="50%">
 </div><!-- First Container 끝-->
 
 <!-- Contents 시작 -->
