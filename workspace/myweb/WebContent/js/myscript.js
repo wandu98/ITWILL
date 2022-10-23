@@ -207,7 +207,7 @@ function pdsCheck(){//포토갤러리 유효성 검사
 	//->파일의 확장명이 이미지 파일(png, jpg, gif)인지 확인하세요
 	let filename = document.getElementById("filename").value; //예)sky.png
 	filename = filename.trim();
-	if(fimename.length==0){
+	if(filename.length==0){
 		alert("첨부 파일 선택하세요 ☹️");
 		return false;
 	}else{
@@ -222,5 +222,5 @@ function pdsCheck(){//포토갤러리 유효성 검사
 			return false;
 		}//if end
 	}//if end
-	return true;
+	
 }//pdsCheck() end

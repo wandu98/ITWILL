@@ -4,7 +4,7 @@
 <!-- 본문시작 pdsForm.jsp -->
 <h3>* 사진 올리기 *</h3>
 <p><a href="pdsList.jsp">[목록]</a></p>
-<form method="post" action="pdsIns.jsp" enctype="multipart/form=data" onsubmit="return pdsCheck()"><!-- mysscript.js -->
+<form method="post" action="pdsIns.jsp" enctype="multipart/form-data" onsubmit="return pdsCheck()"><!-- mysscript.js -->
 <table class="table">
 		<tr>
 		    <th>이름</th>

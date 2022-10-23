@@ -51,11 +51,12 @@
 		}else{
 			out.println("<script>");
 			out.println("	alert('사진을 추가 했습니다');");
-			out.println("	loaction.href='pdsList.jsp';"); //목록페이지 이동
+			out.println("	location.href='pdsList.jsp'"); //목록페이지 이동
 			out.println("</script>");
 		}//ifend
 		
 	}catch(Exception e){
+		out.println(e);
 	    out.println("<p>글추가 실패했습니다</p>");
         out.println("<p><a href='javascript:history.back()'>[다시시도]</a></p>");
 	}//end
