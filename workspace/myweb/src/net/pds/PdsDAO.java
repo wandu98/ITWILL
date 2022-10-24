@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import net.bbs.BbsDTO;
 import net.utility.DBClose;
 import net.utility.DBOpen;
+import net.utility.Utility;
 
 public class PdsDAO {
 
@@ -133,5 +135,66 @@ public class PdsDAO {
         }//end
 
     }//incrementCnt() end
+    
+    public int delete(int pdsno, String passwd, String saveDir) {
+        int cnt = 0;
+        try {
+
+            //테이블의 행 삭제하기 전에, 삭제하고자 하는 파일명 가져온다
+            String filename = "";
+            PdsDTO oldDTO = read(pdsno);
+            if(oldDTO != null) {
+                filename = oldDTO.getFilename();
+            }//if end           
+
+            con = dbopen.getConnection();
+            sql = new StringBuilder();
+            sql.append(" DELETE FROM tb_pds ");
+            sql.append(" WHERE pdsno=? AND passwd=? ");
+            pstmt = con.prepareStatement(sql.toString());
+            pstmt.setInt(1, pdsno);
+            pstmt.setString(2, passwd);
+
+            cnt = pstmt.executeUpdate();
+            if(cnt==1) { //테이블에서 행 삭제가 성공했으므로, 첨부했던 파일도 삭제
+                Utility.deleteFile(saveDir, filename);
+            }//if end
+
+        } catch (Exception e) {
+            System.out.println("삭제 실패 : " + e);
+        } finally {
+            DBClose.close(con, pstmt);
+        }//end 
+        return cnt;
+    }//delete() end
+    
+    public int updateproc(PdsDTO dto) {
+        int cnt=0;
+        try {
+            con=dbopen.getConnection();
+            
+            sql=new StringBuilder();
+            sql.append(" UPDATE tb_pds ");
+            sql.append(" SET wname=?, subject=?, filename=?, filesize=? ");
+            sql.append(" WHERE pdsno=? and passwd=? ");
+            
+            pstmt=con.prepareStatement(sql.toString());
+            pstmt.setString(1, dto.getWname());
+            pstmt.setString(2, dto.getSubject());
+            pstmt.setString(3, dto.getFilename());
+            pstmt.setLong(4, dto.getFilesize());
+            pstmt.setInt(5, dto.getPdsno());
+            pstmt.setString(6, dto.getPasswd());
+            
+            cnt=pstmt.executeUpdate();
+            
+        }catch (Exception e) {
+            System.out.println("수정 실패:"+e);
+        }finally {
+            DBClose.close(con, pstmt);
+        }//end
+        return cnt;
+    }//updateproc() end
+    
     
 }//class end

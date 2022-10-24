@@ -31,13 +31,15 @@
 		<td><%=dto.getWname() %></td>
 	</tr>
 	<tr>
-		<th>작성일</th>
+		<th>작성일</th> 
 		<td><%=dto.getRegdate() %></td>
 	</tr>
 	</table>
+	<input type="button" value="수정" 	class="btn btn-warning" onclick="location.href='pdsUpdate.jsp?pdsno=<%=pdsno%>'">
+	<input type="button" value="삭제" class="btn btn-danger"	onclick="location.href='pdsDel.jsp?pdsno=<%=pdsno%>'">
 <%
 	}//if end
 %>
-
+  
 <!-- 본문 끝 -->
 <%@ include file="../footer.jsp"%>

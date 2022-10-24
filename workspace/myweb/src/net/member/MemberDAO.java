@@ -237,5 +237,28 @@ public class MemberDAO { // Data Access Object
        return flag;
     }//findID end
 
+    public int memberWithdraw(MemberDTO dto) {
+        int cnt = 0;
+        try {
+            con = dbopen.getConnection();
+
+            sql = new StringBuilder();
+            sql.append(" UPDATE member ");
+            sql.append(" SET mlevel='F1' ");
+            sql.append(" WHERE id=? and passwd=? ");
+
+            pstmt = con.prepareStatement(sql.toString());
+            pstmt.setString(1, dto.getId());
+            pstmt.setString(2, dto.getPasswd());
+            
+            cnt=pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println("회원탈퇴 실패:" + e);
+        } finally {
+            DBClose.close(con, pstmt);
+        } // end
+        return cnt;
+    }//memberWithdraw end
     
 }// class end

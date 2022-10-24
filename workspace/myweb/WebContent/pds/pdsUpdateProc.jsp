@@ -6,28 +6,29 @@
  <!-- 수정 요청한 정보를 가져와서,DB에 가서 행 수정하기  -->
  <h3>* 수정 페이지 *</h3>
  <p>
- 	<a href="bbsForm.jsp">[글쓰기]</a>
+ 	<a href="pdsForm.jsp">[글쓰기]</a>
  	&nbsp;&nbsp;
- 	<a href="bbsList.jsp">[글목록]</a>
+ 	<a href="pdsList.jsp">[글목록]</a>
  </p>
  <div class="container">
  <%
  	//수정 요청한 정보 가져오기
- 	int bbsno=Integer.parseInt(request.getParameter("bbsno"));
-    String wname  =request.getParameter("wname").trim();
-	String subject=request.getParameter("subject").trim();
-	String content=request.getParameter("content").trim();
-	String passwd =request.getParameter("passwd").trim();
-	String ip     =request.getRemoteAddr(); //요청PC의 IP
+ 	int pdsno=Integer.parseInt(request.getParameter("pdsno"));
+    String wname    =request.getParameter("wname").trim();
+	String subject  =request.getParameter("subject").trim();
+	String passwd   =request.getParameter("passwd").trim();
+	String filename =request.getParameter("filename").trim();
+	Long   filesize =Long.parseLong(request.getParameter("filesize"));
+	
 	
  	//dto에 담기
- 	dto.setBbsno(bbsno);
+ 	dto.setPdsno(pdsno);
  	dto.setWname(wname);
 	dto.setSubject(subject);
-	dto.setContent(content);
 	dto.setPasswd(passwd);
-	dto.setIp(ip);
-	 
+	dto.setFilename(filename);
+	dto.setFilesize(filesize);
+	
 	int cnt=dao.updateproc(dto);
 	if(cnt==0){
 	    out.println("<p>비밀번호가 일치하지 않습니다</p>");
@@ -35,8 +36,7 @@
 	}else{
         out.println("<script>");
         out.println("    alert('게시글이 수정 되었습니다');");
-        //http://localhost:8080/myweb/bbs/bbsList.jsp?col=subject_content&word=명원아
-        out.println("    location.href='bbsList.jsp ");//목록페이지 이동
+        out.println("    location.href='pdsList.jsp ");//목록페이지 이동
         out.println("</script>");
 	}//if end
 	

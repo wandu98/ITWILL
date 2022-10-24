@@ -94,4 +94,26 @@ set passwd=?
 where mname=? and email=?
 
 
+-- 회원탈퇴
+update member
+set mlevel='F1'
+where id=? and passwd=?;
+
+
+-- 회원정보 수정
+--1) 수정하고자 하는 행을 가져오기 -> read()함수
+select mname, tel, email, zipcode, address1, address2, job
+from member
+where id=?;
+
+--2) 새로 입력한 값으로 행 수정하기 -> modifyProc() 함수
+-- (id는 수정불가, mlevel은 사이트운영자가 수정, mdate는 수정 안 함)
+update member
+set  passwd=?, mname=?, tel=?, email=?, zipcode=?, address1=?, address2=?, job=?
+where id=?;
+
+
+
+
+
 

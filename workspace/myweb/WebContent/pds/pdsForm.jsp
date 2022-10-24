@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 		    <th>비밀번호</th>
-		    <td style="text-align: left"><input type="password" name="passwd" id="passwd" required autofocus>숫자만 입력하세요!</td>
+		    <td style="text-align: left"><input type="password" name="passwd" id="passwd" required autofocus>&nbsp;숫자만 입력하세요!</td>
 		</tr>
 		<tr>
 		    <th>첨부파일</th>
