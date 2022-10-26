@@ -23,6 +23,7 @@
 	</thead>
 	<tbody>
 <%
+	//dao.list() 메소드로 테스트 합니다
 	ArrayList<BbsDTO> list=dao.list();
 	if(list==null){
 		out.println("<tr>");

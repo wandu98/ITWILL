@@ -241,3 +241,48 @@ function pwCheck2(){
 		return false;
 	}//if end
 }//pwChekc2() end
+
+
+function noticeCheck() { // 공지사항 유효성 검사
+	// 제목 2글자 이상 입력
+	let subject = document.getElementById("subject").value;
+	subject = subject.trim();
+	if (subject.length < 2) {
+		alert("제목을 2글자 이상 입력하세요");
+		document.getElementById("subject").focus();
+		return false;
+	}// if end
+
+	// 내용 2글자 이상 입력
+	let content = document.getElementById("content").value;
+	content = content.trim();
+	if (content.length < 2) {
+		alert("내용을 2글자 이상 입력하세요");
+		document.getElementById("content").focus();
+		return false;
+	}// if end
+
+	// 4)비밀번호는 4글자 이상이면서, 숫자형 기호만 입력
+	let passwd = document.getElementById("passwd").value;
+	passwd = passwd.trim();
+	if (passwd.length < 4 || isNaN(passwd)) {
+		alert("비밀번호가 4글자 이상 숫자로 입력하세요");
+		document.getElementById("passwd").focus();
+		return false;
+	}// if end
+
+	return true; // onsubmit이벤트에서 서버로 전송
+}// noticeCheck() end
+
+
+function delCheck(){
+let message = "경고\n진행된 내용은 복구되지 않습니다\n계속 진행할까요?";
+if (confirm(message)) {// 확인true, 취소false
+	return true; // 서버로 전송
+} else {
+	return false;
+}// if end
+
+}//delCheck();
+
+

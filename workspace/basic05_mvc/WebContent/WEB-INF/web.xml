@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>basic05_mvc</display-name>
+  
+  <!-- /WEB-INF/web.xml 배치관리자  -->
+  <!-- 환경설정에 관한 내용을 담고 있음  -->
+  <!-- 주의사항 : web.xml이 수정되면 반드시 서버를 재시작해야 함 -->  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 세션시간 등록 (20분)  -->
+  <session-config>
+  	<session-timeout>20</session-timeout>
+  </session-config>
+  
+  
+  <!-- 에러가 발생했을 때 페이지 지정  -->
+  
+  <!-- HTTP 상태 404 - 찾을 수 없음 -->
+  <!-- 예)http://localhost:8080/basic05_mvc/error/list.jsp가 없는 페이지면 404 발생 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/404code.jsp</location>
+  </error-page> 
+  
+  <!-- HTTP 상태 500 - 내부 서버 오류 -->
+  <!-- 예)http://localhost:8080/basic05_mvc/error/errorTest.jsp -->
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/500code.jsp</location>
+  </error-page>
+</web-app>
