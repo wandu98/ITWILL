@@ -30,4 +30,50 @@
   	<error-code>500</error-code>
   	<location>/error/500code.jsp</location>
   </error-page>
+  
+  <!-- Welcome 서블릿 등록  -->
+  <servlet>
+  	<servlet-name>kim</servlet-name>
+  	<servlet-class>net.control.Welcome</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>kim</servlet-name>
+  	<url-pattern>/wel.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- LifeCycle서블릿(HttpServlet생명주기) 등록 -->
+  <servlet>
+  	<servlet-name>heart</servlet-name>
+  	<servlet-class>net.control.LifeCycle</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>heart</servlet-name>
+  	<url-pattern>/life.do</url-pattern>
+  </servlet-mapping>
+  	
+  
+  <!-- loginForm.jsp 호출하는 서블릿 등록 -->
+  <servlet>
+  	<servlet-name>loginform</servlet-name>
+  	<servlet-class>net.control.LoginForm</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>loginform</servlet-name>
+  <url-pattern>/login.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- action="loginproc.do" 서블릿 등록  -->
+  <servlet>
+  	<servlet-name>loginproc</servlet-name>
+  	<servlet-class>net.control.LoginProc</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>loginproc</servlet-name>
+  	<url-pattern>/loginproc.do</url-pattern>
+  </servlet-mapping>
 </web-app>
