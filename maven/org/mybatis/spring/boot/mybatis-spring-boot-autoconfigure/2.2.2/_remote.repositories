@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Mon Oct 31 12:29:32 KST 2022
+mybatis-spring-boot-autoconfigure-2.2.2.jar>central=
+mybatis-spring-boot-autoconfigure-2.2.2-sources.jar>central=
+mybatis-spring-boot-autoconfigure-2.2.2.pom>central=
