@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 @Controller
 public class MediagroupCont {
 	
@@ -123,5 +124,63 @@ public class MediagroupCont {
 	}//list end
 	
 	
+	@RequestMapping(value = "mediagroup/delete.do", method = RequestMethod.GET)
+	public ModelAndView deleteForm(int mediagroupno) {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("mediagroup/deleteForm");
+		mav.addObject("mediagroupno", mediagroupno);
+		return mav;
+	}//deleteForm() end
+	
+	@RequestMapping(value = "mediagroup/delete.do", method = RequestMethod.POST)
+	public ModelAndView deleteProc(int mediagroupno) {
+		ModelAndView mav=new ModelAndView();
+		
+	int cnt=dao.delete(mediagroupno);
+	if(cnt==0) {
+		mav.setViewName("mediagroup/msgView");
+		String img ="<img src='../images/fail.png'>";
+		String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
+		String link2="<input type='button' value='그룹목록' onclick='location.href=\"list.do\"'>";
+		mav.addObject("img", img);
+		mav.addObject("link1", link1);
+		mav.addObject("link2", link2);
+	}else {
+		mav.setViewName("redirect:/mediagroup/list.do");
+	}//if end
+		
+		return mav;
+	}//deleteForm() end
+	
+	
+	@RequestMapping(value="mediagroup/update.do", method = RequestMethod.GET)
+		public ModelAndView updateForm(int mediagroupno) {
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("mediagroup/updateForm");
+		//mav.addObject("root", Utility.getRoot());
+		mav.addObject("dto", dao.read(mediagroupno));
+		return mav;
+	}//updateForm() end
+	
+	
+	@RequestMapping(value="mediagroup/update.do", method = RequestMethod.POST)
+	public ModelAndView updateProc(@ModelAttribute MediagroupDTO dto) {
+		ModelAndView mav=new ModelAndView();
+		
+		int cnt=dao.update(dto);
+		if(cnt==0) {
+			mav.setViewName("mediagroup/msgView");
+			String img  ="<img src='../images/fail.png'>";
+			String link1="<input type='button' value='다시시도' onclick='javascript:history.back()'>";
+			String link2="<input type='button' value='그룹목록' onclick='location.href=\"list.do\"'>";
+			mav.addObject("img", img);
+			mav.addObject("link1", link1);
+			mav.addObject("link2", link2);
+		}else {
+			mav.setViewName("redirect:/mediagroup/list.do");
+		}//if end
+		
+		return mav;
+	}//updateProc() end
 	
 }//class end
