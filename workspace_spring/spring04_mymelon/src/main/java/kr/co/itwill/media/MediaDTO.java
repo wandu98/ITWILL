@@ -1,5 +1,7 @@
 package kr.co.itwill.media;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MediaDTO {
 	
 	private int mediano;
@@ -12,6 +14,36 @@ public class MediaDTO {
     private int mediagroupno;
     
     //기본생성자, getter, setter, toString ->lombok.jar 라이브러리
+    /////////////////////
+    
+    //기본생성자 아래----------------------------------------------
+    //첨부된 파일을 저장하기 위해(createForm.jsp 참조)
+    
+    //1)스프링 파일 객체 멤버변수 선언
+    //<input type='file' name='posterMF'>
+    private MultipartFile posterMF;
+    
+    //<input type='file' name='filenameMF'>
+    private MultipartFile filenameMF;
+    
+    //2)getter와 setter함수 작성
+	public MultipartFile getPosterMF() {
+		return posterMF;
+	}
+
+	public void setPosterMF(MultipartFile posterMF) {
+		this.posterMF = posterMF;
+	}
+
+	public MultipartFile getFilenameMF() {
+		return filenameMF;
+	}
+
+	public void setFilenameMF(MultipartFile filenameMF) {
+		this.filenameMF = filenameMF;
+	}
+	
+    //----------------------------------------------
     
     public MediaDTO() {}
 
