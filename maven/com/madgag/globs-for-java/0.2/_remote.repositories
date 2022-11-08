@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 08 12:36:59 KST 2022
+globs-for-java-0.2.pom>central=
+globs-for-java-0.2.jar>central=
+globs-for-java-0.2-sources.jar>central=

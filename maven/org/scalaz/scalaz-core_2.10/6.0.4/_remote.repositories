@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 08 12:36:50 KST 2022
+scalaz-core_2.10-6.0.4.jar>central=
+scalaz-core_2.10-6.0.4-sources.jar>central=
+scalaz-core_2.10-6.0.4.pom>central=

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 08 12:36:47 KST 2022
+bfg-repo-cleaner-1.2.0-sources.jar>central=
+bfg-repo-cleaner-1.2.0.jar>central=
+bfg-repo-cleaner-1.2.0.pom>central=

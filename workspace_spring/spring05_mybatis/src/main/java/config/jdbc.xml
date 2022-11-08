@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- jdbc.xml -->
+<!-- DBOpen클래스 + DAO 클래스 -->  
+<configuration>
+
+	<!-- 클래스에 대한 별칭 부여  -->
+	<typeAliases>
+		<typeAlias type="net.mem.MemDTO" alias="memDTO"/>
+	</typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+      	<!-- Oracle DB 연결 정보 (DBOpen 클래스 역할) -->
+        <property name="driver"   value="oracle.jdbc.OracleDriver"/>
+        <property name="url" 	  value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="system"/>
+        <property name="password" value="pass"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!-- SQL문을 작성해 놓은 XML문서 (DAO클래스 역할) -->
+  <mappers>
+    <mapper resource="config/mem.xml"/>
+  </mappers>
+</configuration>
