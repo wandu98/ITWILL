@@ -23,7 +23,7 @@
 		상품명 : <input type="text" name="product_name" value="${product_name}">
 			   <input type="submit" value="검색">
 	</form>
-	
+	<!--  -->
 	<hr>
 	상품갯수 : ${fn:length(list)}
 	<br>
