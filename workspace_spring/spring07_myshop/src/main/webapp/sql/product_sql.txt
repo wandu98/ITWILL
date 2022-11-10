@@ -1,0 +1,16 @@
+--product_sql.txt
+
+-- 상품 테이블 생성
+create table product (
+    product_code int           primary key  --상품번호
+   ,product_name varchar(100)  not null     --상품명
+   ,description  varchar(2000)              --상품내용
+   ,price        int           default 0    --상품가격
+   ,filename     varchar(500)               --파일명
+);
+
+--상품번호 시퀀스 생성
+create sequence product_seq;
+
+
+commit;
