@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- product.xml -->
+<mapper namespace="product">
+
+	<select id="list" resultType="java.util.Map">
+		SELECT product_code, product_name,
+		description, price, filename
+		FROM product
+		ORDER BY product_name
+	</select>
+
+ <insert id="insert">
+		INSERT INTO product(product_code, product_name, description, price, filename, )
+		VALUES (product_seq.nextval, #{product_name}, #{description}, #{price}, #{filename}, )
+	</insert> 
+</mapper>

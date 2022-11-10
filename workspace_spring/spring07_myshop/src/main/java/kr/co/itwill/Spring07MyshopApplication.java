@@ -18,20 +18,21 @@ public class Spring07MyshopApplication {
 		SpringApplication.run(Spring07MyshopApplication.class, args);
 	}//main() end
 
-	//참조 spring05_mybatis프로젝트 MemMainTest 클래스 참조
+	//참조) spring05_mybatis 프로젝트 MemMainTest 클래스
 	//Mapper 객체 생성
-    @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean bean=new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        Resource[] res=new PathMatchingResourcePatternResolver().getResources("classpath:mappers/*.xml");
-        bean.setMapperLocations(res);
-        return bean.getObject();
-    }//sqlSessionFactory() end
-    
-    @Bean
-    public SqlSessionTemplate sqlSession(SqlSessionFactory factory) {
-        return new SqlSessionTemplate(factory); 
-    }//sqlSession() end
-	    
+	@Bean
+	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+		bean.setDataSource(dataSource);
+		Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mappers/*.xml");
+		bean.setMapperLocations(res);
+		return bean.getObject();
+	}//sqlSessionFactory() end
+	
+	@Bean
+	public SqlSessionTemplate sqlSession(SqlSessionFactory factory) {
+		return new SqlSessionTemplate(factory);
+	}//sqlSession() end
+	
+	
 }//class end
