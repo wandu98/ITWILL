@@ -12,8 +12,47 @@
 		ORDER BY product_name
 	</select>
 
- <insert id="insert">
-		INSERT INTO product(product_code, product_name, description, price, filename, )
-		VALUES (product_seq.nextval, #{product_name}, #{description}, #{price}, #{filename}, )
-	</insert> 
+	<insert id="insert" parameterType="java.util.Map">
+		INSERT INTO
+		product(product_code, product_name, description, price, filename)
+		VALUES (product_seq.nextval, #{product_name}, #{description},
+		#{price}, #{filename})
+	</insert>
+	
+	<select id="search" resultType="java.util.Map">
+		SELECT product_code, product_name, description, price, filename
+		FROM product
+		<!-- WHERE upper(product_name) LIKE #{product_name} 영문자일 경우 대소문자 구분없이 -->
+		WHERE product_name LIKE #{product_name}
+		ORDER BY product_name
+	</select>
+	
+	<select id="detail" resultType="java.util.Map">
+		SELECT product_code, product_name, description, price, filename
+		FROM product
+		WHERE product_code = #{product_code}
+	</select>
+	
+		<update id="update">
+		UPDATE product
+		SET product_name=#{product_name}
+			,price=#{price}
+			,description=#{description}
+			,filename=#{filename}
+		WHERE product_code=#{product_code}
+	</update>
+	
+	
+		<select id="filename" resultType="String">
+		SELECT filename
+		FROM product
+		WHERE product_code=#{product_code}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM product
+		WHERE product_code=#{product_code}
+	</delete>
+	
+	
 </mapper>
