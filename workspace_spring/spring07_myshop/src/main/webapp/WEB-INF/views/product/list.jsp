@@ -42,7 +42,7 @@
 				<br>
 				상품명 : <a href="detail/${row.PRODUCT_CODE}">${row.PRODUCT_NAME}</a>
 				<br>
-				상품가격 : <fmt:formatNumber value="${row.PRICE}" pattern="#.###"/>
+				상품가격 : <fmt:formatNumber value="${row.PRICE}" pattern="#,###"/>
 			</td>
 			<c:if test="${vs.count mod 5==0}">
 				<tr><tr>
