@@ -13,3 +13,20 @@ create table pcomment(
  
  
  commit;
+ 
+ 
+MariaDB
+
+create table pcomment(
+    cno      int AUTO_INCREMENT primary key     -- 댓글번호
+    ,
+    pno      int not null        -- 부모글 번호
+    ,
+    content  VARCHAR(5000) not null -- 댓글내용
+    ,
+    wname    VARCHAR(100) not null -- 작성자
+    ,
+    regdate  datetime   default now() -- 작성일
+);
+
+
